@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
 
 from .config import Settings
-from .events import EventsConfig, Event, Recurring
+from .events import Event, EventsConfig, Recurring
 from .http import Fetcher, SourceError
 from .sources.cards import Card, CardSource, LocalJsonCardSource, OfficialCardSource, search
 from .sources.doggy import DoggyMarket, DoggyStats, staleness_warnings
@@ -189,7 +189,9 @@ class Helper:
         gaps.append(f"X account @{username} not found.")
         continue
       try:
-        posts = await self.x.recent_posts(username, uid, since)
+        posts = [
+          p for p in await self.x.recent_posts(username, uid, since) if p.created_at >= since
+        ]
       except XUnavailable as e:
         gaps.append(f"X posts for @{username} unavailable ({_err(e)}).")
         continue
@@ -220,7 +222,9 @@ class Helper:
     unseen = set(state.filter_unseen(ids))
     state.mark_seen(ids)
     cutoff = self.clock() - timedelta(hours=24)
-    new = sorted((s for s in sales if s.id in unseen and s.created_at >= cutoff), key=lambda s: s.created_at)
+    new = sorted(
+      (s for s in sales if s.id in unseen and s.created_at >= cutoff), key=lambda s: s.created_at
+    )
     cap = self.settings.sales_alert_max_per_cycle
     if len(new) > cap:
       log.warning("%d new sales this cycle; posting the latest %d", len(new), cap)

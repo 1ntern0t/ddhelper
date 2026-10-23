@@ -72,19 +72,23 @@ def parse_cards(data: Any, image_base: str = "https://ddltcg.com") -> list[Card]
     if not img and _SERIAL_RE.match(serial):
       # Same path the official gallery uses (cardRenderPath in /js/config.js).
       img = f"{image_base.rstrip('/')}/card_renders/v2/{serial}.png"
-    out.append(Card(
-      serial=serial,
-      name=str(c["name"]).strip(),
-      card_class=str(c.get("class") or c.get("classRaw") or ""),
-      type=str(c.get("type") or ""),
-      rarity=str(c.get("rarity") or ""),
-      mana=_int(c.get("mana")),
-      attack=_int(c.get("attack")),
-      hp=_int(c.get("hp")),
-      keywords=tuple(str(k) for k in c.get("keywords") or ([c["keyword"]] if c.get("keyword") else [])),
-      description=str(c.get("description") or ""),
-      image_url=img,
-    ))
+    out.append(
+      Card(
+        serial=serial,
+        name=str(c["name"]).strip(),
+        card_class=str(c.get("class") or c.get("classRaw") or ""),
+        type=str(c.get("type") or ""),
+        rarity=str(c.get("rarity") or ""),
+        mana=_int(c.get("mana")),
+        attack=_int(c.get("attack")),
+        hp=_int(c.get("hp")),
+        keywords=tuple(
+          str(k) for k in c.get("keywords") or ([c["keyword"]] if c.get("keyword") else [])
+        ),
+        description=str(c.get("description") or ""),
+        image_url=img,
+      )
+    )
   return out
 
 

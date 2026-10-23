@@ -41,7 +41,12 @@ def sanitize(text: str) -> str:
 
 
 class Renderer:
-  def __init__(self, tz: ZoneInfo, tz_label: str = "ET", tx_explorer_url: str = "https://blockchair.com/dogecoin/transaction/{txid}"):
+  def __init__(
+    self,
+    tz: ZoneInfo,
+    tz_label: str = "ET",
+    tx_explorer_url: str = "https://blockchair.com/dogecoin/transaction/{txid}",
+  ):
     self.tz = tz
     self.tz_label = tz_label
     self.tx_url = tx_explorer_url
@@ -55,14 +60,20 @@ class Renderer:
     if r.stats:
       s = r.stats
       lines.append(f"Floor: **{doge(s.floor)}**  ·  Listed: **{s.listed:,}** / {s.supply:,}")
-      lines.append(f"30d volume: {doge(s.volume_30d)} over {s.trades_30d} trades (avg {doge(s.avg_sale_30d)})")
+      lines.append(
+        f"30d volume: {doge(s.volume_30d)} over {s.trades_30d} trades (avg {doge(s.avg_sale_30d)})"
+      )
     else:
       lines.append(f"⚠️ Official stats unavailable: {r.official_error}")
     if r.vol_24h and r.vol_7d:
-      lines.append(f"24h volume: {doge(r.vol_24h.doge)} ({plural(r.vol_24h.count, 'sale')})  ·  "
-                   f"7d volume: {doge(r.vol_7d.doge)} ({plural(r.vol_7d.count, 'sale')})")
+      lines.append(
+        f"24h volume: {doge(r.vol_24h.doge)} ({plural(r.vol_24h.count, 'sale')})  ·  "
+        f"7d volume: {doge(r.vol_7d.doge)} ({plural(r.vol_7d.count, 'sale')})"
+      )
       if r.vol_7d.without_tx:
-        lines.append(f"ℹ️ {r.vol_7d.without_tx} of {r.vol_7d.count} sales in 7d have no tx id (manually recorded by the market; not verified on-chain).")
+        lines.append(
+          f"ℹ️ {r.vol_7d.without_tx} of {r.vol_7d.count} sales in 7d have no tx id (manually recorded by the market; not verified on-chain)."
+        )
     elif r.sales_error:
       lines.append(f"⚠️ Sales feed unavailable: {r.sales_error}")
     lines.append("")
@@ -71,13 +82,17 @@ class Renderer:
       cmp = ""
       if r.stats and r.stats.floor:
         cmp = f" ({pct((d.floor - r.stats.floor) / r.stats.floor * 100)} vs official)"
-      lines.append(f"Doggy Market (secondary): floor {doge(d.floor)}{cmp}, {d.listed} listed, "
-                   f"7d: {plural(d.trades_7d, 'trade')} / {doge(d.volume_7d)}")
+      lines.append(
+        f"Doggy Market (secondary): floor {doge(d.floor)}{cmp}, {d.listed} listed, "
+        f"7d: {plural(d.trades_7d, 'trade')} / {doge(d.volume_7d)}"
+      )
       for w in r.doggy_warnings:
         lines.append(f"⚠️ {w}")
     else:
       lines.append(f"Doggy Market (secondary): unavailable ({r.doggy_error})")
-    lines.append(f"-# Data as of {self.ts(r.generated_at)}. Market figures come from the official site's unofficial internal endpoints.")
+    lines.append(
+      f"-# Data as of {self.ts(r.generated_at)}. Market figures come from the official site's unofficial internal endpoints."
+    )
     return "\n".join(lines)
 
   # sales
@@ -100,7 +115,9 @@ class Renderer:
     lines += [self.sale_line(s) for s in sales]
     manual = sum(1 for s in sales if not s.has_tx)
     if manual:
-      lines.append(f"-# {manual} of {len(sales)} have no on-chain tx id in the market data (recorded manually); treat as unverified.")
+      lines.append(
+        f"-# {manual} of {len(sales)} have no on-chain tx id in the market data (recorded manually); treat as unverified."
+      )
     return "\n".join(lines)
 
   def sale_alert(self, s: Sale) -> str:
@@ -109,19 +126,25 @@ class Renderer:
   def floor_alert(self, a: FloorAlert) -> str:
     arrow = "📈" if a.pct > 0 else "📉"
     extra = f" · {a.listed:,} listed" if a.listed is not None else ""
-    return (f"{arrow} **Floor moved {pct(a.pct)}**: {doge(a.old)} → **{doge(a.new)}**{extra}\n"
-            f"-# official market · {link('https://market.doginaldogs.com/')}")
+    return (
+      f"{arrow} **Floor moved {pct(a.pct)}**: {doge(a.old)} → **{doge(a.new)}**{extra}\n"
+      f"-# official market · {link('https://market.doginaldogs.com/')}"
+    )
 
   # cards
   def card(self, matches: list[Card], query: str, source: str) -> str:
     if not matches:
-      return f"No DDL card matches “{sanitize(query)}”. Try a name (e.g. Renza) or a serial (e.g. V052)."
+      return (
+        f"No DDL card matches “{sanitize(query)}”. Try a name (e.g. Renza) or a serial (e.g. V052)."
+      )
     c = matches[0]
     stats = []
     if c.mana is not None:
       stats.append(f"Mana {c.mana}")
     if c.type == "Creature":
-      stats.append(f"ATK {c.attack if c.attack is not None else '-'} / HP {c.hp if c.hp is not None else '-'}")
+      stats.append(
+        f"ATK {c.attack if c.attack is not None else '-'} / HP {c.hp if c.hp is not None else '-'}"
+      )
     lines = [
       f"**{c.name}** ({c.serial}) · {c.rarity} {c.card_class} {c.type}",
       " · ".join(stats) if stats else "",
@@ -153,12 +176,19 @@ class Renderer:
       line += f" · {f.stats.listed:,} listed"
       out.append(line)
     if f.vol_24h is not None:
-      out.append(f"24h: {plural(f.vol_24h.count, 'sale')}, {doge(f.vol_24h.doge)}"
-                 + (f" · 7d: {plural(f.vol_7d.count, 'sale')}, {doge(f.vol_7d.doge)}" if f.vol_7d else ""))
+      out.append(
+        f"24h: {plural(f.vol_24h.count, 'sale')}, {doge(f.vol_24h.doge)}"
+        + (f" · 7d: {plural(f.vol_7d.count, 'sale')}, {doge(f.vol_7d.doge)}" if f.vol_7d else "")
+      )
     if d.sales:
       top = sorted(d.sales, key=lambda s: s.price_doge, reverse=True)[:3]
-      out.append("Top sales: " + ", ".join(
-        f"#{s.dog_number if s.dog_number is not None else '?'} {doge(s.price_doge)}{'' if s.has_tx else '*'}" for s in top))
+      out.append(
+        "Top sales: "
+        + ", ".join(
+          f"#{s.dog_number if s.dog_number is not None else '?'} {doge(s.price_doge)}{'' if s.has_tx else '*'}"
+          for s in top
+        )
+      )
       if any(not s.has_tx for s in top):
         out.append("-# * manually recorded, no tx id")
     if f.doggy and f.doggy_warnings:
@@ -185,15 +215,25 @@ class Renderer:
     if d.recurring_today or d.events:
       out.append("\n**Upcoming**")
       for r, at in d.recurring_today:
-        out.append(f"Today {self.ts(at, '%-I:%M %p')}: {r.name}" + (f" {link(r.url)}" if r.url else "")
-                   + (f"\n-# {r.note}" if r.note else ""))
+        out.append(
+          f"Today {self.ts(at, '%-I:%M %p')}: {r.name}"
+          + (f" {link(r.url)}" if r.url else "")
+          + (f"\n-# {r.note}" if r.note else "")
+        )
       today = d.generated_at.astimezone(self.tz).date()
       for e in d.events:
         days = (e.start - today).days
         when = "happening now" if days <= 0 else f"in {days} day{'s' if days != 1 else ''}"
-        span = e.start.strftime("%b %-d") + (f"–{e.end.strftime('%-d' if e.end.month == e.start.month else '%b %-d')}" if e.end != e.start else "")
-        out.append(f"{e.name}: {span}, {e.start.year} ({when})" + (f" · {e.location}" if e.location else "")
-                   + (f" {link(e.url)}" if e.url else ""))
+        span = e.start.strftime("%b %-d") + (
+          f"–{e.end.strftime('%-d' if e.end.month == e.start.month else '%b %-d')}"
+          if e.end != e.start
+          else ""
+        )
+        out.append(
+          f"{e.name}: {span}, {e.start.year} ({when})"
+          + (f" · {e.location}" if e.location else "")
+          + (f" {link(e.url)}" if e.url else "")
+        )
     if d.gaps:
       out.append("\n**Gaps**")
       out += [f"- {g}" for g in d.gaps]

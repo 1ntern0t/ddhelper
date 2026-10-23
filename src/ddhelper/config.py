@@ -13,8 +13,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from . import __version__
 
 DEFAULT_USER_AGENT = (
-  f"ddhelper/{__version__} (Doginal Dogs community helper bot; read-only; "
-  "+https://x.com/1nternot)"
+  f"ddhelper/{__version__} (Doginal Dogs community helper bot; read-only; +https://x.com/1nternot)"
 )
 
 _USERNAME_RE = re.compile(r"^[A-Za-z0-9_]{1,15}$")
@@ -24,7 +23,9 @@ class ConfigError(ValueError):
   """Raised when an environment variable is missing or malformed."""
 
 
-def load_dotenv(path: str | os.PathLike[str] = ".env", environ: dict[str, str] | None = None) -> bool:
+def load_dotenv(
+  path: str | os.PathLike[str] = ".env", environ: dict[str, str] | None = None
+) -> bool:
   """Minimal .env loader. Existing variables win; returns True if the file was read.
 
   Supports KEY=VALUE lines, comments (#), blank lines and optional single/double quotes.
@@ -40,7 +41,7 @@ def load_dotenv(path: str | os.PathLike[str] = ".env", environ: dict[str, str] |
     key, _, value = line.partition("=")
     key = key.strip()
     if key.startswith("export "):
-      key = key[len("export "):].strip()
+      key = key[len("export ") :].strip()
     value = value.strip()
     if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
       value = value[1:-1]
@@ -92,7 +93,14 @@ class Settings:
   x_accounts: tuple[str, ...] = ("doginaldogs", "barkmeta", "DDLTCG", "DDSalesBot")
   x_filtered_accounts: tuple[str, ...] = ("barkmeta",)
   x_filter_keywords: tuple[str, ...] = (
-    "doginal", "ddl", "legends", "ddmiami", "pack", "space", "wizzy", "woof",
+    "doginal",
+    "ddl",
+    "legends",
+    "ddmiami",
+    "pack",
+    "space",
+    "wizzy",
+    "woof",
   )
   # Polling (seconds). Modest defaults: be a polite client.
   sales_poll_seconds: int = 300
@@ -159,13 +167,17 @@ class Settings:
       x_bearer_token=_opt_str(env, "X_BEARER_TOKEN"),
       x_accounts=accounts,
       x_filtered_accounts=filtered,
-      x_filter_keywords=tuple(k.lower() for k in _csv(env, "X_FILTER_KEYWORDS", ",".join(cls.x_filter_keywords))),
+      x_filter_keywords=tuple(
+        k.lower() for k in _csv(env, "X_FILTER_KEYWORDS", ",".join(cls.x_filter_keywords))
+      ),
       # Lower bound of 60s keeps the bot polite even if misconfigured.
       sales_poll_seconds=int(_num(env, "SALES_POLL_SECONDS", 300, 60, 86400)),
       floor_poll_seconds=int(_num(env, "FLOOR_POLL_SECONDS", 300, 60, 86400)),
       floor_alert_pct=_num(env, "FLOOR_ALERT_PCT", 10.0, 0.5, 100),
       floor_alert_min_doge=_num(env, "FLOOR_ALERT_MIN_DOGE", 2000, 0, 1e9),
-      floor_alert_cooldown_seconds=int(_num(env, "FLOOR_ALERT_COOLDOWN_SECONDS", 3600, 0, 7 * 86400)),
+      floor_alert_cooldown_seconds=int(
+        _num(env, "FLOOR_ALERT_COOLDOWN_SECONDS", 3600, 0, 7 * 86400)
+      ),
       sales_alert_max_per_cycle=int(_num(env, "SALES_ALERT_MAX_PER_CYCLE", 5, 1, 20)),
       digest_time=time(int(m.group(1)), int(m.group(2))),
       timezone=tz_name,
@@ -178,9 +190,13 @@ class Settings:
     )
 
   def require_discord(self) -> None:
-    missing = [k for k, v in (
-      ("DISCORD_TOKEN", self.discord_token),
-      ("DISCORD_GUILD_ID", self.guild_id),
-    ) if not v]
+    missing = [
+      k
+      for k, v in (
+        ("DISCORD_TOKEN", self.discord_token),
+        ("DISCORD_GUILD_ID", self.guild_id),
+      )
+      if not v
+    ]
     if missing:
       raise ConfigError("missing required settings for the Discord bot: " + ", ".join(missing))

@@ -42,11 +42,16 @@ def card_embed(c: Card, source: str, others: list[Card]) -> discord.Embed:
   if c.mana is not None:
     e.add_field(name="Mana", value=str(c.mana))
   if c.type == "Creature":
-    e.add_field(name="ATK / HP", value=f"{c.attack if c.attack is not None else '-'} / {c.hp if c.hp is not None else '-'}")
+    e.add_field(
+      name="ATK / HP",
+      value=f"{c.attack if c.attack is not None else '-'} / {c.hp if c.hp is not None else '-'}",
+    )
   if c.keywords:
     e.add_field(name="Keywords", value=", ".join(c.keywords), inline=False)
   if others:
-    e.add_field(name="Other matches", value=", ".join(f"{m.name} ({m.serial})" for m in others), inline=False)
+    e.add_field(
+      name="Other matches", value=", ".join(f"{m.name} ({m.serial})" for m in others), inline=False
+    )
   if c.image_url:
     e.set_image(url=c.image_url)
   e.set_footer(text=f"Source: {source}. DDL TCG card data © Doginal Dogs.")
@@ -54,7 +59,9 @@ def card_embed(c: Card, source: str, others: list[Card]) -> discord.Embed:
 
 
 class DDHelperBot(discord.Client):
-  def __init__(self, settings: Settings, http: HttpClient, helper: Helper, state: State, renderer: Renderer):
+  def __init__(
+    self, settings: Settings, http: HttpClient, helper: Helper, state: State, renderer: Renderer
+  ):
     super().__init__(intents=INTENTS, allowed_mentions=NO_MENTIONS)
     self.settings = settings
     self.http_client = http
@@ -91,10 +98,16 @@ class DDHelperBot(discord.Client):
     await super().close()
 
   async def on_ready(self) -> None:
-    log.info("logged in as %s (id %s); invite: %s", self.user, self.user.id if self.user else "?",
-             INVITE_URL_TEMPLATE.format(application_id=self.application_id))
+    log.info(
+      "logged in as %s (id %s); invite: %s",
+      self.user,
+      self.user.id if self.user else "?",
+      INVITE_URL_TEMPLATE.format(application_id=self.application_id),
+    )
 
-  async def on_app_command_error(self, itx: discord.Interaction, error: app_commands.AppCommandError) -> None:
+  async def on_app_command_error(
+    self, itx: discord.Interaction, error: app_commands.AppCommandError
+  ) -> None:
     if isinstance(error, app_commands.CommandOnCooldown):
       msg = f"Slow down a little: try again in {error.retry_after:.0f}s."
     else:
@@ -178,7 +191,11 @@ def register_commands(bot: DDHelperBot, guild: discord.abc.Snowflake) -> None:
   tree, helper, r = bot.tree, bot.helper, bot.renderer
   per_user = app_commands.checks.cooldown(1, 10.0, key=lambda i: i.user.id)
 
-  @tree.command(name="floor", description="Official floor, listings, 24h/7d volume, Doggy Market comparison", guild=guild)
+  @tree.command(
+    name="floor",
+    description="Official floor, listings, 24h/7d volume, Doggy Market comparison",
+    guild=guild,
+  )
   @per_user
   async def floor_cmd(itx: discord.Interaction) -> None:
     await itx.response.defer(thinking=True)
@@ -198,7 +215,11 @@ def register_commands(bot: DDHelperBot, guild: discord.abc.Snowflake) -> None:
     for part in chunk(text):
       await itx.followup.send(part, allowed_mentions=NO_MENTIONS, suppress_embeds=True)
 
-  @tree.command(name="card", description="Look up a DDL TCG card by name or serial (e.g. Renza, V052)", guild=guild)
+  @tree.command(
+    name="card",
+    description="Look up a DDL TCG card by name or serial (e.g. Renza, V052)",
+    guild=guild,
+  )
   @app_commands.describe(name="Card name or serial")
   @per_user
   async def card_cmd(itx: discord.Interaction, name: app_commands.Range[str, 1, 40]) -> None:
@@ -211,15 +232,21 @@ def register_commands(bot: DDHelperBot, guild: discord.abc.Snowflake) -> None:
     try:
       matches = await helper.find_card(q)
     except SourceError as e:
-      await itx.followup.send(f"⚠️ Card data unavailable right now ({sanitize(str(e))}).", allowed_mentions=NO_MENTIONS)
+      await itx.followup.send(
+        f"⚠️ Card data unavailable right now ({sanitize(str(e))}).", allowed_mentions=NO_MENTIONS
+      )
       return
     if not matches:
       await itx.followup.send(r.card([], q, helper.cards.name), allowed_mentions=NO_MENTIONS)
       return
-    await itx.followup.send(embed=card_embed(matches[0], helper.cards.name, matches[1:]), allowed_mentions=NO_MENTIONS)
+    await itx.followup.send(
+      embed=card_embed(matches[0], helper.cards.name, matches[1:]), allowed_mentions=NO_MENTIONS
+    )
 
   @card_cmd.autocomplete("name")
-  async def card_autocomplete(itx: discord.Interaction, current: str) -> list[app_commands.Choice[str]]:
+  async def card_autocomplete(
+    itx: discord.Interaction, current: str
+  ) -> list[app_commands.Choice[str]]:
     try:
       cards = await helper.cards.all_cards()
     except SourceError:
@@ -228,13 +255,17 @@ def register_commands(bot: DDHelperBot, guild: discord.abc.Snowflake) -> None:
     hits = [c for c in cards if not cur or cur in c.name.lower() or cur == c.serial.lower()]
     return [app_commands.Choice(name=f"{c.name} ({c.serial})", value=c.serial) for c in hits[:25]]
 
-  @tree.command(name="digest", description="Today's Doginal Dogs digest (only you can see it)", guild=guild)
+  @tree.command(
+    name="digest", description="Today's Doginal Dogs digest (only you can see it)", guild=guild
+  )
   @app_commands.checks.cooldown(1, 60.0, key=lambda i: i.user.id)
   async def digest_cmd(itx: discord.Interaction) -> None:
     await itx.response.defer(thinking=True, ephemeral=True)
     text = r.digest(await helper.digest())
     for part in chunk(text):
-      await itx.followup.send(part, ephemeral=True, allowed_mentions=NO_MENTIONS, suppress_embeds=True)
+      await itx.followup.send(
+        part, ephemeral=True, allowed_mentions=NO_MENTIONS, suppress_embeds=True
+      )
 
 
 def run_bot(settings: Settings) -> None:

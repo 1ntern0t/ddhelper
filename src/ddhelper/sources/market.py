@@ -61,7 +61,11 @@ def _unwrap(payload: Any, proc: str) -> Any:
   except (IndexError, KeyError, TypeError) as e:
     raise SourceError(f"market {proc}: unexpected response shape") from e
   if "error" in item:
-    msg = item["error"].get("json", {}).get("message", "error") if isinstance(item["error"], dict) else "error"
+    msg = (
+      item["error"].get("json", {}).get("message", "error")
+      if isinstance(item["error"], dict)
+      else "error"
+    )
     raise SourceError(f"market {proc}: {msg}")
   try:
     return item["result"]["data"]["json"]
@@ -74,7 +78,9 @@ def parse_stats(payload: Any, fetched_at: datetime | None = None) -> MarketStats
   try:
     return MarketStats(
       floor=float(d["floorPrice"]),
-      floor_change_pct=float(d["floorPriceChange"]) if d.get("floorPriceChange") is not None else None,
+      floor_change_pct=float(d["floorPriceChange"])
+      if d.get("floorPriceChange") is not None
+      else None,
       listed=int(d["listed"]),
       supply=int(d.get("supply") or 10000),
       volume_30d=float(d.get("volume30d") or 0),
@@ -152,14 +158,18 @@ class OfficialMarket:
     data, ts = await self._call("listings.getStats", None, cache_ttl)
     return parse_stats(data, ts)
 
-  async def recent_sales(self, limit: int = 50, cursor: int | None = None, cache_ttl: float = 60) -> tuple[list[Sale], int | None]:
+  async def recent_sales(
+    self, limit: int = 50, cursor: int | None = None, cache_ttl: float = 60
+  ) -> tuple[list[Sale], int | None]:
     inp: dict[str, Any] = {"limit": max(1, min(limit, 50))}
     if cursor is not None:
       inp["cursor"] = cursor
     data, _ = await self._call("activity.getGlobal", inp, cache_ttl)
     return parse_activity(data)
 
-  async def sales_since(self, since: datetime, max_pages: int = 4, cache_ttl: float = 60) -> list[Sale]:
+  async def sales_since(
+    self, since: datetime, max_pages: int = 4, cache_ttl: float = 60
+  ) -> list[Sale]:
     """All sales newer than `since`, paging until older data or `max_pages`."""
     out: list[Sale] = []
     cursor: int | None = None
@@ -170,10 +180,14 @@ class OfficialMarket:
         break
     return out
 
-  async def floor_history(self, time_range: str = "7d", cache_ttl: float = 300) -> list[tuple[datetime, float]]:
+  async def floor_history(
+    self, time_range: str = "7d", cache_ttl: float = 300
+  ) -> list[tuple[datetime, float]]:
     if time_range not in ("24h", "7d", "30d", "all"):
       raise ValueError("time_range must be one of 24h, 7d, 30d, all")
-    data, _ = await self._call("listings.getHistoricalFloorPrice", {"timeRange": time_range}, cache_ttl)
+    data, _ = await self._call(
+      "listings.getHistoricalFloorPrice", {"timeRange": time_range}, cache_ttl
+    )
     return parse_floor_history(data)
 
 

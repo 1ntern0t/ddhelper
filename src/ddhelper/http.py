@@ -119,7 +119,7 @@ class HttpClient:
     await self.close()
 
   def _backoff(self, attempt: int) -> float:
-    cap = min(self._backoff_max, self._backoff_base * (2 ** attempt))
+    cap = min(self._backoff_max, self._backoff_base * (2**attempt))
     return random.uniform(cap / 2, cap)  # noqa: S311 - jitter, not crypto
 
   @staticmethod
@@ -168,7 +168,9 @@ class HttpClient:
           body = await r.read()
       except (aiohttp.ClientError, TimeoutError) as e:
         last_err = f"{type(e).__name__}: {e}"
-        log.warning("GET %s failed (%s), attempt %d/%d", url, type(e).__name__, attempt + 1, self._retries + 1)
+        log.warning(
+          "GET %s failed (%s), attempt %d/%d", url, type(e).__name__, attempt + 1, self._retries + 1
+        )
         if attempt < self._retries:
           await self._sleep(self._backoff(attempt))
         continue
@@ -193,4 +195,6 @@ class HttpClient:
       if cache_ttl > 0:
         self._cache[key] = (time.monotonic() + cache_ttl, resp)
       return resp
-    raise SourceError(f"GET {urlsplit(url).netloc}{urlsplit(url).path} failed after retries: {last_err}")
+    raise SourceError(
+      f"GET {urlsplit(url).netloc}{urlsplit(url).path} failed after retries: {last_err}"
+    )

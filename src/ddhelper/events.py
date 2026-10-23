@@ -69,7 +69,16 @@ def load_events(path: str | Path) -> EventsConfig:
     end = _to_date(e.get("end", start), "end")
     if end < start:
       raise ValueError(f"event {e.get('name')!r}: end before start")
-    events.append(Event(str(e["name"]), start, end, str(e.get("location", "")), str(e.get("url", "")), str(e.get("note", ""))))
+    events.append(
+      Event(
+        str(e["name"]),
+        start,
+        end,
+        str(e.get("location", "")),
+        str(e.get("url", "")),
+        str(e.get("note", "")),
+      )
+    )
   rec = []
   for r in raw.get("recurring", []):
     at = r["time"] if isinstance(r["time"], time) else time.fromisoformat(str(r["time"]))
@@ -79,5 +88,7 @@ def load_events(path: str | Path) -> EventsConfig:
       raise ValueError(f"recurring {r.get('name')!r}: bad days {bad}")
     tz = str(r.get("tz", "America/New_York"))
     ZoneInfo(tz)
-    rec.append(Recurring(str(r["name"]), at, tz, days, str(r.get("url", "")), str(r.get("note", ""))))
+    rec.append(
+      Recurring(str(r["name"]), at, tz, days, str(r.get("url", "")), str(r.get("note", "")))
+    )
   return EventsConfig(tuple(events), tuple(rec))

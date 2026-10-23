@@ -57,14 +57,18 @@ async def dry_run(settings: Settings, what: str, arg: str | None, n: int) -> int
         # Uses a throwaway in-memory state: shows what the first two poll cycles would do.
         st = State(":memory:")
         seeded = await helper.poll_new_sales(st)
-        print(f"[sales poll #1] seeded state, would post {len(seeded)} alert(s) (first run never floods)")
+        print(
+          f"[sales poll #1] seeded state, would post {len(seeded)} alert(s) (first run never floods)"
+        )
         new = await helper.poll_new_sales(st)
         print(f"[sales poll #2] would post {len(new)} alert(s)")
         for s in new:
           _print_message(renderer.sale_alert(s))
         await helper.poll_floor(st)
         alert = await helper.poll_floor(st)
-        print(f"[floor poll] baseline set; alert now: {renderer.floor_alert(alert) if alert else 'none'}")
+        print(
+          f"[floor poll] baseline set; alert now: {renderer.floor_alert(alert) if alert else 'none'}"
+        )
     except SourceError as e:
       print(f"Source unavailable: {e}", file=sys.stderr)
       return 2
@@ -75,7 +79,9 @@ async def dry_run(settings: Settings, what: str, arg: str | None, n: int) -> int
 
 
 def build_parser() -> argparse.ArgumentParser:
-  p = argparse.ArgumentParser(prog="ddhelper", description="Doginal Dogs community helper bot (read-only).")
+  p = argparse.ArgumentParser(
+    prog="ddhelper", description="Doginal Dogs community helper bot (read-only)."
+  )
   p.add_argument("--env-file", default=".env", help="optional .env file to load (default: .env)")
   p.add_argument("-v", "--verbose", action="store_true")
   sub = p.add_subparsers(dest="cmd", required=True)

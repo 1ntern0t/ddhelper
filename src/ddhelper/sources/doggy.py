@@ -60,7 +60,9 @@ def staleness_warnings(doggy: DoggyStats, official_floor: float | None, now: dat
   if doggy.trades_7d == 0:
     out.append("No Doggy Market trades in the last 7 days.")
   elif doggy.trades_24h == 0 and doggy.trades_7d <= 2:
-    out.append(f"Thin activity on Doggy Market ({doggy.trades_7d} trade{'s' if doggy.trades_7d != 1 else ''} in 7d).")
+    out.append(
+      f"Thin activity on Doggy Market ({doggy.trades_7d} trade{'s' if doggy.trades_7d != 1 else ''} in 7d)."
+    )
   if doggy.newest_listing_at and (now - doggy.newest_listing_at).days >= 7:
     out.append(f"Newest Doggy Market listing is {(now - doggy.newest_listing_at).days} days old.")
   return out

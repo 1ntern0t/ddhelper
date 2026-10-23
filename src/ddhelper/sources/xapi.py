@@ -53,7 +53,11 @@ class Post:
 def parse_users(payload: Any) -> dict[str, str]:
   if not isinstance(payload, dict):
     raise XUnavailable("X users lookup: unexpected response")
-  return {u["username"].lower(): u["id"] for u in payload.get("data") or [] if "id" in u and "username" in u}
+  return {
+    u["username"].lower(): u["id"]
+    for u in payload.get("data") or []
+    if "id" in u and "username" in u
+  }
 
 
 def parse_posts(payload: Any, username: str) -> list[Post]:
@@ -70,25 +74,29 @@ def parse_posts(payload: Any, username: str) -> list[Post]:
       for u in (p.get("entities") or {}).get("urls") or []
     )
     refs = {r.get("type") for r in p.get("referenced_tweets") or []}
-    out.append(Post(
-      id=str(p["id"]),
-      username=username,
-      created_at=created,
-      text=str(p.get("text") or ""),
-      likes=int(m.get("like_count") or 0),
-      reposts=int(m.get("retweet_count") or 0),
-      replies=int(m.get("reply_count") or 0),
-      views=int(m["impression_count"]) if m.get("impression_count") is not None else None,
-      urls=tuple(u for u in urls if u),
-      is_quote="quoted" in refs,
-    ))
+    out.append(
+      Post(
+        id=str(p["id"]),
+        username=username,
+        created_at=created,
+        text=str(p.get("text") or ""),
+        likes=int(m.get("like_count") or 0),
+        reposts=int(m.get("retweet_count") or 0),
+        replies=int(m.get("reply_count") or 0),
+        views=int(m["impression_count"]) if m.get("impression_count") is not None else None,
+        urls=tuple(u for u in urls if u),
+        is_quote="quoted" in refs,
+      )
+    )
   return sorted(out, key=lambda x: x.created_at, reverse=True)
 
 
 class XClient:
   name = "X API v2"
 
-  def __init__(self, fetcher: Fetcher, bearer_token: str | None, base_url: str = "https://api.x.com/2"):
+  def __init__(
+    self, fetcher: Fetcher, bearer_token: str | None, base_url: str = "https://api.x.com/2"
+  ):
     self._f = fetcher
     self._token = bearer_token
     self._base = base_url.rstrip("/")
@@ -105,7 +113,9 @@ class XClient:
 
   async def _get(self, path: str, params: dict[str, str], cache_ttl: float) -> Any:
     try:
-      r = await self._f.get_json(self._base + path, params=params, headers=self._headers(), cache_ttl=cache_ttl)
+      r = await self._f.get_json(
+        self._base + path, params=params, headers=self._headers(), cache_ttl=cache_ttl
+      )
     except XUnavailable:
       raise
     except SourceError as e:
@@ -119,7 +129,9 @@ class XClient:
       self._ids.update(parse_users(data))
     return {u: self._ids[u.lower()] for u in usernames if u.lower() in self._ids}
 
-  async def recent_posts(self, username: str, user_id: str, since: datetime, max_results: int = 10) -> list[Post]:
+  async def recent_posts(
+    self, username: str, user_id: str, since: datetime, max_results: int = 10
+  ) -> list[Post]:
     params = {
       "max_results": str(max(5, min(max_results, 100))),
       "exclude": "retweets,replies",

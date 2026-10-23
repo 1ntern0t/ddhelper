@@ -40,13 +40,16 @@ class State:
     ids = list(ids)
     if not ids:
       return []
-    q = ",".join("?" * len(ids))
-    seen = {r[0] for r in self._db.execute(f"SELECT sale_id FROM seen_sales WHERE sale_id IN ({q})", ids)}  # noqa: S608 - placeholders only
+    # Only "?" placeholders are interpolated; values are bound parameters.
+    sql = "SELECT sale_id FROM seen_sales WHERE sale_id IN (" + ",".join("?" * len(ids)) + ")"  # noqa: S608
+    seen = {r[0] for r in self._db.execute(sql, ids)}
     return [i for i in ids if i not in seen]
 
   def mark_seen(self, ids: Iterable[int]) -> None:
     now = time.time()
-    self._db.executemany("INSERT OR IGNORE INTO seen_sales(sale_id, seen_at) VALUES (?, ?)", [(i, now) for i in ids])
+    self._db.executemany(
+      "INSERT OR IGNORE INTO seen_sales(sale_id, seen_at) VALUES (?, ?)", [(i, now) for i in ids]
+    )
     self._db.commit()
 
   def prune_seen(self, keep_seconds: float = 90 * 86400) -> None:

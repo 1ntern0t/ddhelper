@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+import logging
 import tomllib
 from dataclasses import dataclass
 from datetime import date, datetime, time
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+log = logging.getLogger(__name__)
 
 _WEEKDAYS = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
 
@@ -60,6 +63,7 @@ def _to_date(v: object, field: str) -> date:
 def load_events(path: str | Path) -> EventsConfig:
   p = Path(path)
   if not p.is_file():
+    log.warning("events file %s not found; digest will have no upcoming events", p)
     return EventsConfig()
   with p.open("rb") as f:
     raw = tomllib.load(f)

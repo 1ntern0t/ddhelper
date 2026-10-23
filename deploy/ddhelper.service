@@ -1,0 +1,43 @@
+# Example systemd unit. Install:
+#   sudo useradd --system --home /opt/ddhelper --shell /usr/sbin/nologin ddhelper
+#   sudo -u ddhelper python3 -m venv /opt/ddhelper/.venv
+#   sudo -u ddhelper /opt/ddhelper/.venv/bin/pip install -r requirements.txt .
+#   sudo install -m 600 -o ddhelper .env /etc/ddhelper.env
+#   sudo cp deploy/ddhelper.service /etc/systemd/system/ && sudo systemctl daemon-reload
+#   sudo systemctl enable --now ddhelper
+[Unit]
+Description=ddhelper - Doginal Dogs community helper bot (read-only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ddhelper
+Group=ddhelper
+WorkingDirectory=/opt/ddhelper
+EnvironmentFile=/etc/ddhelper.env
+Environment=DDHELPER_DB=/var/lib/ddhelper/ddhelper.sqlite3
+ExecStart=/opt/ddhelper/.venv/bin/python -m ddhelper --env-file /dev/null run
+Restart=on-failure
+RestartSec=30
+StateDirectory=ddhelper
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+ReadWritePaths=/var/lib/ddhelper
+
+[Install]
+WantedBy=multi-user.target

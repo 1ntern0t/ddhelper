@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ddhelper"
+version = "0.1.0"
+description = "Read-only Doginal Dogs community helper bot for Discord (floor, sales, DDL cards, daily digest)."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "xirion" }]
+requires-python = ">=3.11"
+dependencies = [
+  "discord.py>=2.4,<3",
+  "aiohttp>=3.9,<4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.5",
+]
+
+[project.scripts]
+ddhelper = "ddhelper.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+indent-width = 2
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF", "ASYNC"]
+ignore = [
+  "E501",   # long strings in messages are fine; formatter handles code
+  "RUF001", # emoji / unicode in user-facing strings is intentional
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106"]
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"

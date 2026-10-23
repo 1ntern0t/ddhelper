@@ -1,0 +1,49 @@
+{
+ "data": [
+  {
+   "author_id": "1659130914746806272",
+   "created_at": "2026-10-22T23:58:53.000Z",
+   "edit_history_tweet_ids": [
+    "2113419853457764693"
+   ],
+   "entities": {
+    "urls": [
+     {
+      "display_url": "pic.x.com/cedLTrNJE6",
+      "end": 108,
+      "expanded_url": "https://x.com/doginaldogs/status/2113419853457764693/video/1",
+      "media_key": "13_2113419841012961281",
+      "start": 85,
+      "url": "https://t.co/cedLTrNJE6"
+     }
+    ]
+   },
+   "id": "2113419853457764693",
+   "public_metrics": {
+    "bookmark_count": 28,
+    "impression_count": 3266,
+    "like_count": 109,
+    "quote_count": 5,
+    "reply_count": 36,
+    "retweet_count": 46
+   },
+   "text": "Red candles for spooky season?\n\nThe Doginal Dogs community will handle that for you. https://t.co/cedLTrNJE6"
+  }
+ ],
+ "includes": {
+  "users": [
+   {
+    "id": "1659130914746806272",
+    "name": "Doginal Dogs",
+    "profile_image_url": "https://pbs.twimg.com/profile_images/2073740357615919104/cxhEc_wn_normal.jpg",
+    "username": "doginaldogs",
+    "verified": true
+   }
+  ]
+ },
+ "meta": {
+  "newest_id": "2113419853457764693",
+  "oldest_id": "2113419853457764693",
+  "result_count": 1
+ }
+}

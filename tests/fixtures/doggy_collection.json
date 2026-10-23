@@ -1,0 +1,731 @@
+{
+ "volume": 2371450167899800,
+ "volume1h": 0,
+ "volume24h": 0,
+ "volume7d": 2200000000000,
+ "volume30d": 7980000000000,
+ "trades": 2072,
+ "trades1h": 0,
+ "trades24h": 0,
+ "trades7d": 1,
+ "trades30d": 4,
+ "listed": 44,
+ "recentlyListed": [
+  {
+   "inscriptionId": "5610aa21615ad13f31d39431395a29b26f785d242bcac6ea56f73648d441a3b6i0",
+   "inscriptionNumber": 61347821,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "D74Ns7JymT4peL8zXXUuh9fvx5vmWx2R4x",
+   "listedAt": "2026-10-20T21:05:20.759Z",
+   "price": 4000000000000
+  },
+  {
+   "inscriptionId": "bd5f01cd1855a3c4865e79e742d2fa07008a3f267aa4b1e79e282b18b535f549i0",
+   "inscriptionNumber": 61340578,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DDWS5o3pLUc5i2vikbV4xtvTys74jN11CM",
+   "listedAt": "2026-10-12T02:53:34.302Z",
+   "price": 4499900000000
+  },
+  {
+   "inscriptionId": "628d48868f1c8f64df0b4a9037e57b516a4ccf1cdefc91054dfe63047369d3e6i0",
+   "inscriptionNumber": 61360985,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DGQJkbWX8ZgH6DBiQiw6PGksvYJoSm3rdE",
+   "listedAt": "2026-10-08T23:38:24.896Z",
+   "price": 2366900000000
+  },
+  {
+   "inscriptionId": "9cd4a5ec5c2fb585d72fb08f768a463ced496186d343c16210e898d5a48d619ci0",
+   "inscriptionNumber": 61352703,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DQ43wTd5RubAi1dm1tAcs16GTaDNaQCGum",
+   "listedAt": "2026-10-08T03:38:03.915Z",
+   "price": 6800000000000
+  },
+  {
+   "inscriptionId": "3e84431fd738fbdfb90ca139d5a96b4d1399cadc1b74cf99fdca512e1341068ai0",
+   "inscriptionNumber": 61353004,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DEiXsxeKcru4a4ameoKZkQm1ViKPKcsoUt",
+   "listedAt": "2026-09-18T21:45:00.327Z",
+   "price": 4850000000000
+  },
+  {
+   "inscriptionId": "7d28cc52a5966054a7510fd3860afe448d6b5fec6b608fb7e29d9ffe80101e90i0",
+   "inscriptionNumber": 61358239,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DECM547TRh1Q1v5Nv2uvvky2S88oiReji7",
+   "listedAt": "2026-09-08T15:39:48.408Z",
+   "price": 4850000000000
+  },
+  {
+   "inscriptionId": "91da06d61b33751a0e03860b96dfb38c8f29aa908c1e7e5d3aa9ca3a9b1ce487i0",
+   "inscriptionNumber": 61350709,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DQ8Wezdx8XXeQ16wvTVsjiodxdM3abdD4P",
+   "listedAt": "2026-09-08T15:37:51.102Z",
+   "price": 3750000000000
+  },
+  {
+   "inscriptionId": "fe55844cdafa3b2a0c9aceaf6b48ac067c67c84e357887c950778cbabb4a142di0",
+   "inscriptionNumber": 61346939,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DSdNVekHxxUyk9YUSv6BznKfAFpbCyecHB",
+   "listedAt": "2026-09-08T04:41:25.597Z",
+   "price": 6900000000000
+  },
+  {
+   "inscriptionId": "6b82c1d75cad4089abeff15014c61f7d401244c0658fd5df249d2a6fd831db42i0",
+   "inscriptionNumber": 61360754,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "D8CZV9H3Naqzq8HQXGYUeqPJ1km2j4ojHd",
+   "listedAt": "2026-09-06T11:59:39.493Z",
+   "price": 9999900000000
+  },
+  {
+   "inscriptionId": "8a6fdcf6e2ce8b0bf70ed319d9c42564495f7f05bbd6df175a671312ec59a283i0",
+   "inscriptionNumber": 61350741,
+   "status": "listed",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "D6TQZksRpFxhVbybak9RpTk9QLLh8vtwLE",
+   "listedAt": "2026-09-03T18:10:13.987Z",
+   "price": 2950000000000
+  }
+ ],
+ "recentlySold": [
+  {
+   "inscriptionId": "f01b9659f0e3944a9260dd27d28f03ba256b6ffcaa5d084028a81c17e38fad33i0",
+   "inscriptionNumber": 61356073,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DDbuDwVpELhHYizBUzgYX9JymADhFW1gvG",
+   "listedAt": "2026-10-09T21:22:30.694Z",
+   "price": 2200000000000
+  },
+  {
+   "inscriptionId": "78bebadd93689395d552e2ca28ea6bee7aae46d54fe69b3434f7535ed1158575i0",
+   "inscriptionNumber": 61361161,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DP2M695tPz5cKSQWTqSnEEGPJ8aWhyA3oa",
+   "listedAt": "2026-09-23T08:54:44.923Z",
+   "price": 1990000000000
+  },
+  {
+   "inscriptionId": "182f39024fab1e1b30b3a15a9a9113cc88ea55cb2a8160b27c28cd61942f71fdi0",
+   "inscriptionNumber": 61350583,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DP2M695tPz5cKSQWTqSnEEGPJ8aWhyA3oa",
+   "listedAt": "2026-09-23T08:54:44.923Z",
+   "price": 1990000000000
+  },
+  {
+   "inscriptionId": "4bf0c1b058076b28e7363eebe66d822d674fc9a5a4fd9fe90b556bb8e794bde1i0",
+   "inscriptionNumber": 61351080,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DE6Wrq7u6zUxGcrvqzpvVxWmzb7JLhXda7",
+   "listedAt": "2026-09-23T19:59:24.787Z",
+   "price": 1800000000000
+  },
+  {
+   "inscriptionId": "9cd4a5ec5c2fb585d72fb08f768a463ced496186d343c16210e898d5a48d619ci0",
+   "inscriptionNumber": 61352703,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DUSSZVEPwpytpGnhoRMSAC1a98ZL1cCDZj",
+   "listedAt": "2026-09-20T01:11:27.272Z",
+   "price": 800000000000
+  },
+  {
+   "inscriptionId": "96d5d0ae443ac14c033a1489da8305b5f0cb9d63d7694c417252543cd1a9e5d4i0",
+   "inscriptionNumber": 61360947,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DGvV2p8WMNVaVTBUsEUDWMBmD8apU1gGky",
+   "listedAt": "2026-09-17T14:00:44.583Z",
+   "price": 1800000000000
+  },
+  {
+   "inscriptionId": "25da75730185b52dfd35b48cfc36c50acf3e19287e123af22f521a4ac020f6e4i0",
+   "inscriptionNumber": 61357073,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "D9EJuXqdD9yd9tkDeKMWxdFbhNpFdDSSFi",
+   "listedAt": "2026-09-14T06:19:55.819Z",
+   "price": 6000000000000
+  },
+  {
+   "inscriptionId": "6867763f5846f08e4918a7d41c9008de1fbd544286803a9fc1a04fc16daf82a2i0",
+   "inscriptionNumber": 61346456,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DRi5L93AvrJMtdS7bXVU954YB7LMggRXVv",
+   "listedAt": "2026-09-08T14:25:31.176Z",
+   "price": 2400000000000
+  },
+  {
+   "inscriptionId": "14f75d5cb89883845a8e8ef99251fef49b3ce2c86c0db6eb317f40ea2ab1ebd9i0",
+   "inscriptionNumber": 61350547,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DQ9cDp6UZhcU8mZkHURkzTvddL4gQPxAZ8",
+   "listedAt": "2026-09-08T00:36:38.321Z",
+   "price": 6200000000000
+  },
+  {
+   "inscriptionId": "b55441589b300daafe8a82433ec9782b3d23e442227b5f660d4e5bbe475c86f7i0",
+   "inscriptionNumber": 61360760,
+   "status": "bought",
+   "type": "nft",
+   "contentType": "image/png",
+   "sellerAddress": "DCkoR9sa8LQnzyBikgrsSDiKyGfP56GBpy",
+   "listedAt": "2026-09-07T13:33:41.427Z",
+   "price": 2444300000000
+  }
+ ],
+ "supply": 10000,
+ "rangeStart": 61336624,
+ "rangeEnd": 61362056,
+ "type": "doginaldogs",
+ "owners": 4955,
+ "collection": {
+  "collectionId": "doginaldogs",
+  "name": "Doginal Dogs",
+  "image": "https://api.doggy.market/inscriptions/edd3aaeb52999509f25619e7d35d0457bd80a46696836d8ac93a10cf34ca4f43i0/content",
+  "description": "10,000 Distinctive Pixel Dogs inscribed on the Doge Blockchain",
+  "supply": 10000,
+  "attributes": [
+   {
+    "name": "Background",
+    "values": [
+     {
+      "value": "Tan",
+      "items": 2274
+     },
+     {
+      "value": "Yellow",
+      "items": 1224
+     },
+     {
+      "value": "Red",
+      "items": 1169
+     },
+     {
+      "value": "Green",
+      "items": 911
+     },
+     {
+      "value": "Aqua",
+      "items": 908
+     },
+     {
+      "value": "Rose",
+      "items": 900
+     },
+     {
+      "value": "Pink",
+      "items": 893
+     },
+     {
+      "value": "Blue",
+      "items": 879
+     },
+     {
+      "value": "Purple",
+      "items": 842
+     }
+    ]
+   },
+   {
+    "name": "Fur Color",
+    "values": [
+     {
+      "value": "White",
+      "items": 2518
+     },
+     {
+      "value": "Black",
+      "items": 1824
+     },
+     {
+      "value": "Brown",
+      "items": 1015
+     },
+     {
+      "value": "Gray",
+      "items": 991
+     },
+     {
+      "value": "Tan",
+      "items": 812
+     },
+     {
+      "value": "Orange",
+      "items": 785
+     },
+     {
+      "value": "Yellow",
+      "items": 763
+     },
+     {
+      "value": "Green",
+      "items": 274
+     },
+     {
+      "value": "Beige",
+      "items": 269
+     },
+     {
+      "value": "Purple",
+      "items": 242
+     },
+     {
+      "value": "Blue",
+      "items": 166
+     },
+     {
+      "value": "Pink",
+      "items": 125
+     },
+     {
+      "value": "Gold",
+      "items": 52
+     },
+     {
+      "value": "Rose Gold",
+      "items": 51
+     },
+     {
+      "value": "Bronze",
+      "items": 49
+     },
+     {
+      "value": "Silver",
+      "items": 47
+     },
+     {
+      "value": "Diamond",
+      "items": 17
+     }
+    ]
+   },
+   {
+    "name": "Fur Pattern",
+    "values": [
+     {
+      "value": "Classic",
+      "items": 3767
+     },
+     {
+      "value": "Tiger",
+      "items": 1118
+     },
+     {
+      "value": "Solid",
+      "items": 964
+     },
+     {
+      "value": "Dalmatian",
+      "items": 817
+     },
+     {
+      "value": "Spotted",
+      "items": 666
+     },
+     {
+      "value": "Husky",
+      "items": 622
+     },
+     {
+      "value": "Zombie",
+      "items": 398
+     },
+     {
+      "value": "Blotted",
+      "items": 310
+     },
+     {
+      "value": "Collie",
+      "items": 284
+     },
+     {
+      "value": "Shiny",
+      "items": 216
+     },
+     {
+      "value": "Split",
+      "items": 145
+     },
+     {
+      "value": "Bernard",
+      "items": 136
+     },
+     {
+      "value": "Grey",
+      "items": 130
+     },
+     {
+      "value": "Sheppard",
+      "items": 125
+     },
+     {
+      "value": "Shiba",
+      "items": 108
+     },
+     {
+      "value": "Pug",
+      "items": 99
+     },
+     {
+      "value": "Boxer",
+      "items": 95
+     }
+    ]
+   },
+   {
+    "name": "Head",
+    "values": [
+     {
+      "value": "Floppy Ears",
+      "items": 2614
+     },
+     {
+      "value": "Small Ears",
+      "items": 2614
+     },
+     {
+      "value": "Big Ears",
+      "items": 2564
+     },
+     {
+      "value": "Cowboy",
+      "items": 310
+     },
+     {
+      "value": "Sombrero",
+      "items": 160
+     },
+     {
+      "value": "Builder",
+      "items": 158
+     },
+     {
+      "value": "Beanie",
+      "items": 154
+     },
+     {
+      "value": "Snapback",
+      "items": 141
+     },
+     {
+      "value": "Painter",
+      "items": 124
+     },
+     {
+      "value": "Crown",
+      "items": 110
+     },
+     {
+      "value": "Beret",
+      "items": 102
+     },
+     {
+      "value": "Bandana",
+      "items": 88
+     },
+     {
+      "value": "Wizard",
+      "items": 86
+     },
+     {
+      "value": "Firefighter",
+      "items": 72
+     },
+     {
+      "value": "Top Hat",
+      "items": 67
+     },
+     {
+      "value": "Pirate",
+      "items": 65
+     },
+     {
+      "value": "Rasta",
+      "items": 60
+     },
+     {
+      "value": "Bear",
+      "items": 60
+     },
+     {
+      "value": "Chef",
+      "items": 55
+     },
+     {
+      "value": "Gameday",
+      "items": 53
+     },
+     {
+      "value": "Captain",
+      "items": 50
+     },
+     {
+      "value": "Jester",
+      "items": 49
+     },
+     {
+      "value": "Helmet",
+      "items": 47
+     },
+     {
+      "value": "Birthday",
+      "items": 39
+     },
+     {
+      "value": "Helicopter",
+      "items": 39
+     },
+     {
+      "value": "Afro",
+      "items": 34
+     },
+     {
+      "value": "Dad Hat",
+      "items": 26
+     },
+     {
+      "value": "Army",
+      "items": 22
+     },
+     {
+      "value": "Trucker",
+      "items": 18
+     },
+     {
+      "value": "Bandit",
+      "items": 11
+     },
+     {
+      "value": "Tophat",
+      "items": 8
+     }
+    ]
+   },
+   {
+    "name": "Clothes",
+    "values": [
+     {
+      "value": "None",
+      "items": 6532
+     },
+     {
+      "value": "Collar",
+      "items": 1298
+     },
+     {
+      "value": "Sport Hoodie",
+      "items": 294
+     },
+     {
+      "value": "Scarf",
+      "items": 264
+     },
+     {
+      "value": "Shirt",
+      "items": 248
+     },
+     {
+      "value": "Classic Hoodie",
+      "items": 218
+     },
+     {
+      "value": "Suspenders",
+      "items": 200
+     },
+     {
+      "value": "Tracksuit",
+      "items": 191
+     },
+     {
+      "value": "Lumberjack",
+      "items": 178
+     },
+     {
+      "value": "Gold Chain",
+      "items": 160
+     },
+     {
+      "value": "Turtleneck",
+      "items": 158
+     },
+     {
+      "value": "Silver Chain",
+      "items": 111
+     },
+     {
+      "value": "Poncho",
+      "items": 94
+     },
+     {
+      "value": "Suit",
+      "items": 54
+     }
+    ]
+   },
+   {
+    "name": "Mouth",
+    "values": [
+     {
+      "value": "None",
+      "items": 9029
+     },
+     {
+      "value": "Ball",
+      "items": 415
+     },
+     {
+      "value": "Bone",
+      "items": 387
+     },
+     {
+      "value": "Chicken",
+      "items": 105
+     },
+     {
+      "value": "Steak",
+      "items": 53
+     },
+     {
+      "value": "Pizza",
+      "items": 11
+     }
+    ]
+   },
+   {
+    "name": "Eyes",
+    "values": [
+     {
+      "value": "Black",
+      "items": 3289
+     },
+     {
+      "value": "Sleepy",
+      "items": 1013
+     },
+     {
+      "value": "Round Glasses",
+      "items": 916
+     },
+     {
+      "value": "Mixed",
+      "items": 786
+     },
+     {
+      "value": "Visor",
+      "items": 624
+     },
+     {
+      "value": "Square Glasses",
+      "items": 554
+     },
+     {
+      "value": "Red",
+      "items": 539
+     },
+     {
+      "value": "Pink",
+      "items": 536
+     },
+     {
+      "value": "Yellow",
+      "items": 526
+     },
+     {
+      "value": "Blue",
+      "items": 511
+     },
+     {
+      "value": "Green",
+      "items": 505
+     },
+     {
+      "value": "Eyepatch",
+      "items": 76
+     },
+     {
+      "value": "Monocle",
+      "items": 76
+     },
+     {
+      "value": "Sunglasses",
+      "items": 49
+     }
+    ]
+   },
+   {
+    "name": "Accessory",
+    "values": [
+     {
+      "value": "None",
+      "items": 9417
+     },
+     {
+      "value": "Bow",
+      "items": 335
+     },
+     {
+      "value": "Mohawk",
+      "items": 108
+     },
+     {
+      "value": "Bone",
+      "items": 75
+     },
+     {
+      "value": "Flower Headband",
+      "items": 33
+     },
+     {
+      "value": "Gold Headband",
+      "items": 32
+     }
+    ]
+   }
+  ]
+ },
+ "floorPrice": 2366900000000,
+ "change24h": 0,
+ "change7d": 0.07586363636363637,
+ "change30d": 0.18939698492462312
+}

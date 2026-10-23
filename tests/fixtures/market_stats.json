@@ -1,0 +1,19 @@
+[
+ {
+  "result": {
+   "data": {
+    "json": {
+     "floorPrice": 47000,
+     "floorPriceChange": 4.444444444444445,
+     "volume30d": 2094864,
+     "totalVolume": 325747452.01379275,
+     "trades30d": 30,
+     "avgSalePrice30d": 69828.8,
+     "supply": 10000,
+     "listed": 267,
+     "marketCap": 470000000
+    }
+   }
+  }
+ }
+]

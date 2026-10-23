@@ -1,0 +1,219 @@
+{
+ "data": [
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-23T14:58:43.000Z",
+   "edit_history_tweet_ids": [
+    "2113646306967077190"
+   ],
+   "id": "2113646306967077190",
+   "public_metrics": {
+    "bookmark_count": 16,
+    "impression_count": 6259,
+    "like_count": 96,
+    "quote_count": 2,
+    "reply_count": 61,
+    "retweet_count": 17
+   },
+   "text": "Everything is getting hacked by AI…\n\nBanks, Crypto, Investment portfolios, Websites, etc\n\nGenuine question… what do we buy at this point?"
+  },
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-23T02:16:32.000Z",
+   "edit_history_tweet_ids": [
+    "2113454494113583531"
+   ],
+   "id": "2113454494113583531",
+   "public_metrics": {
+    "bookmark_count": 439,
+    "impression_count": 111957,
+    "like_count": 1807,
+    "quote_count": 22,
+    "reply_count": 120,
+    "retweet_count": 355
+   },
+   "referenced_tweets": [
+    {
+     "id": "2113437710065311970",
+     "type": "quoted"
+    }
+   ],
+   "text": "This is insane.\n\nQuest Diagnostics just got hacked.\n\nThey run lab tests for 1 in 3 Americans EVERY YEAR. Half the doctors and hospitals in the country use them.\n\nYour blood work. Your test results. Your medical history. EVERYTHING just got leaked…\n\nNOTHING is safe anymore.\n\nThis https://t.co/02sZpuaezT https://t.co/tkJeWj1942"
+  },
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-22T21:00:49.000Z",
+   "edit_history_tweet_ids": [
+    "2113375044239831329"
+   ],
+   "id": "2113375044239831329",
+   "public_metrics": {
+    "bookmark_count": 86,
+    "impression_count": 11822,
+    "like_count": 251,
+    "quote_count": 17,
+    "reply_count": 279,
+    "retweet_count": 199
+   },
+   "text": "https://t.co/GAwc5Q9Gbd"
+  },
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-22T20:57:48.000Z",
+   "edit_history_tweet_ids": [
+    "2113374284215161072"
+   ],
+   "id": "2113374284215161072",
+   "public_metrics": {
+    "bookmark_count": 36,
+    "impression_count": 11221,
+    "like_count": 239,
+    "quote_count": 2,
+    "reply_count": 65,
+    "retweet_count": 39
+   },
+   "text": "love how the plan for the most powerful technology ever made was to ship it with zero guardrails and figure out the consequences later"
+  },
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-22T17:08:17.000Z",
+   "edit_history_tweet_ids": [
+    "2113316523406500237"
+   ],
+   "id": "2113316523406500237",
+   "public_metrics": {
+    "bookmark_count": 75,
+    "impression_count": 102975,
+    "like_count": 856,
+    "quote_count": 21,
+    "reply_count": 572,
+    "retweet_count": 60
+   },
+   "text": "Serious question... if AI takes all of the jobs and prices keep going up, what exactly is the plan for regular people?"
+  },
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-22T16:14:53.000Z",
+   "edit_history_tweet_ids": [
+    "2113303085833421105"
+   ],
+   "id": "2113303085833421105",
+   "public_metrics": {
+    "bookmark_count": 225,
+    "impression_count": 63474,
+    "like_count": 713,
+    "quote_count": 31,
+    "reply_count": 124,
+    "retweet_count": 158
+   },
+   "referenced_tweets": [
+    {
+     "id": "2113251043173683683",
+     "type": "quoted"
+    }
+   ],
+   "text": "Let me explain what’s happening with AI right now👇\n\nAI is starting to get into places it was never supposed to be.\n\nBanks are finding unauthorized AI agents inside customer accounts. Agents are moving money and taking actions on their OWN. No user told them to do it.\n\nThe banks https://t.co/gnsqVLqRvv https://t.co/0Z3t74gP34"
+  },
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-22T14:31:13.000Z",
+   "edit_history_tweet_ids": [
+    "2113276998202056874"
+   ],
+   "id": "2113276998202056874",
+   "public_metrics": {
+    "bookmark_count": 54,
+    "impression_count": 24239,
+    "like_count": 736,
+    "quote_count": 4,
+    "reply_count": 133,
+    "retweet_count": 58
+   },
+   "text": "Most people in crypto have no idea how rich they’re gunna get."
+  },
+  {
+   "author_id": "336348053",
+   "created_at": "2026-10-22T03:08:06.000Z",
+   "edit_history_tweet_ids": [
+    "2113105086150852826"
+   ],
+   "id": "2113105086150852826",
+   "public_metrics": {
+    "bookmark_count": 38,
+    "impression_count": 8243,
+    "like_count": 168,
+    "quote_count": 4,
+    "reply_count": 84,
+    "retweet_count": 52
+   },
+   "text": "Community is the most important aspect of Crypto.\n\nNothing else comes close. https://t.co/PAq4hcdIOj"
+  }
+ ],
+ "includes": {
+  "tweets": [
+   {
+    "author_id": "1538525334781370368",
+    "created_at": "2026-10-23T01:09:50.000Z",
+    "edit_history_tweet_ids": [
+     "2113437710065311970"
+    ],
+    "id": "2113437710065311970",
+    "public_metrics": {
+     "bookmark_count": 3830,
+     "impression_count": 1835233,
+     "like_count": 12783,
+     "quote_count": 940,
+     "reply_count": 432,
+     "retweet_count": 2525
+    },
+    "text": "Quest Diagnostics has been hacked. Patient data was exposed. They serve roughly half of U.S. hospitals and physicians. Investigation ongoing. https://t.co/BSJ2fmn329"
+   },
+   {
+    "author_id": "527914276",
+    "created_at": "2026-10-22T12:48:05.000Z",
+    "edit_history_tweet_ids": [
+     "2113251043173683683"
+    ],
+    "id": "2113251043173683683",
+    "public_metrics": {
+     "bookmark_count": 8023,
+     "impression_count": 8372486,
+     "like_count": 18486,
+     "quote_count": 2652,
+     "reply_count": 1312,
+     "retweet_count": 6646
+    },
+    "text": "SCOOP: Major U.S. banks are detecting unauthorized third-party AI agents inside customer accounts, including some attempting to take actions that appear to be independent of user instructions, sources told Axios.\n\nThe findings have alarmed banking executives, who are racing to"
+   }
+  ],
+  "users": [
+   {
+    "id": "336348053",
+    "name": "Bark",
+    "profile_image_url": "https://pbs.twimg.com/profile_images/2113044266196856832/fp1xtK2O_normal.jpg",
+    "username": "barkmeta",
+    "verified": false
+   },
+   {
+    "id": "1538525334781370368",
+    "name": "Andrew Curran",
+    "profile_image_url": "https://pbs.twimg.com/profile_images/1596945208058744833/_X3LT7fb_normal.jpg",
+    "username": "AndrewCurran_",
+    "verified": false
+   },
+   {
+    "id": "527914276",
+    "name": "Madison Mills",
+    "profile_image_url": "https://pbs.twimg.com/profile_images/1784997467039170560/0Vttab_c_normal.jpg",
+    "username": "MadisonMills22",
+    "verified": false
+   }
+  ]
+ },
+ "meta": {
+  "newest_id": "2113646306967077190",
+  "next_token": "7140dibdnow9c7btwp0g73tw6g5fmgczm9bfn0i08z67q",
+  "oldest_id": "2113105086150852826",
+  "result_count": 8
+ }
+}

@@ -1,0 +1,1261 @@
+[
+ {
+  "result": {
+   "data": {
+    "json": {
+     "activities": [
+      {
+       "id": 1443,
+       "walletAddress": "DNCgRn4WiYqhJpjjLcoAk2GqhLfRrQdoTp",
+       "activityType": "sale",
+       "inscriptionId": "9ba2f246beb9b42ffebde8cbaad266f297878587b2ee24eaaf1903b0fba989d9i0",
+       "inscriptionNumber": 61349497,
+       "dogName": "Doginal Dog #7001",
+       "imageUrl": "/dogs/7001.png",
+       "priceDoge": "56500.00000000",
+       "counterpartyAddress": "DPUgBNfzK8jq5JrdwwxMqmkgXk52DQKHxe",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-22T21:17:02.408Z",
+       "confirmedAt": "2026-10-22T21:17:02.408Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1442,
+       "walletAddress": "DFxRYMbbUaw7DFXorhTqgDe324FQB7Sk9d",
+       "activityType": "sale",
+       "inscriptionId": "2e839550ddd27058186b2119be95c4cbbbf87f8b74104373bf163ce8b8e722c0i0",
+       "inscriptionNumber": 61337562,
+       "dogName": "Doginal Dog #99",
+       "imageUrl": "/dogs/99.png",
+       "priceDoge": "75000.00000000",
+       "counterpartyAddress": "DQ2NrR7H9LAdDq9HqdDDTEYHk5DBgXwAys",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-22T14:16:58.127Z",
+       "confirmedAt": "2026-10-22T14:16:58.127Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1441,
+       "walletAddress": "DHgBA8XcBCsMywE66uWyCfPvD4hUecgd1T",
+       "activityType": "sale",
+       "inscriptionId": "f7c880580e0f83c6ca004fe14332c146b0fa0d99e3c9f54b972ac9baa1e4512ci0",
+       "inscriptionNumber": 61357791,
+       "dogName": "Doginal Dog #5755",
+       "imageUrl": "/dogs/5755.png",
+       "priceDoge": "80000.00000000",
+       "counterpartyAddress": "DHVUJeZv94B69hfqj7j9GDPjakrypCNgtF",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-21T21:46:24.739Z",
+       "confirmedAt": "2026-10-21T21:46:24.739Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1440,
+       "walletAddress": "D7sZDg32cAPa12bZE8MgQ8UwweQ93E3p7A",
+       "activityType": "sale",
+       "inscriptionId": "2f3b8957ac7ef377ef0535377f1c02c4f4ee8b3fde387a1f9f7a47b1dd277ee6i0",
+       "inscriptionNumber": 61341597,
+       "dogName": "Doginal Dog #1968",
+       "imageUrl": "/dogs/1968.png",
+       "priceDoge": "60000.00000000",
+       "counterpartyAddress": "DNa7QR5tSxUF3jFRHntQcUXUdrxaYRZyV2",
+       "txid": "74b50620bd3b39b90b1d63f5503f116c3df026fd203a9d2c7ecfff4b681cf2fb",
+       "listingId": 6399,
+       "status": "confirmed",
+       "createdAt": "2026-10-21T17:43:15.559Z",
+       "confirmedAt": "2026-10-21T18:43:43.333Z",
+       "isManual": false,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1438,
+       "walletAddress": "DMYggVWmi6G3s36DARLs9dDuZ58HTgipWR",
+       "activityType": "sale",
+       "inscriptionId": "d039927506b10fa02edd3d5c3719c58ebfc7b3dce39bec89283127c3e6c09381i0",
+       "inscriptionNumber": 61354783,
+       "dogName": "Doginal Dog #9118",
+       "imageUrl": "/dogs/9118.png",
+       "priceDoge": "47999.00000000",
+       "counterpartyAddress": "DNa7QR5tSxUF3jFRHntQcUXUdrxaYRZyV2",
+       "txid": "7653afa6ddbb952525cbac2c59bfa645ab1df9004e2d574a9c75661dfcfae6d8",
+       "listingId": 6350,
+       "status": "confirmed",
+       "createdAt": "2026-10-21T09:09:15.180Z",
+       "confirmedAt": "2026-10-21T14:46:50.876Z",
+       "isManual": false,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1436,
+       "walletAddress": "DLHFTN2s6EW8vPLvTD5eQUimdyTMhDtvXb",
+       "activityType": "sale",
+       "inscriptionId": "33de25be6bd371596a9120ab5172172fc3d47ca1dae6e201cd02655dee110381i0",
+       "inscriptionNumber": 61339679,
+       "dogName": "Doginal Dog #364",
+       "imageUrl": "/dogs/364.png",
+       "priceDoge": "45000.00000000",
+       "counterpartyAddress": "DNa7QR5tSxUF3jFRHntQcUXUdrxaYRZyV2",
+       "txid": "96079bbd9409b551ad330a7e7f5eabb977d8e40c50653b1252b4144345678137",
+       "listingId": 6410,
+       "status": "pending",
+       "createdAt": "2026-10-21T00:12:54.405Z",
+       "confirmedAt": null,
+       "isManual": false,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1434,
+       "walletAddress": "DHReEi5s4j5cvc64thScyGspNjYCGhGw9c",
+       "activityType": "sale",
+       "inscriptionId": "3fb5a08bf4cc4457031230ae62a1f2f24ad2027da463ccf78c38eb5ea39ebe0di0",
+       "inscriptionNumber": 61343880,
+       "dogName": "Doginal Dog #1573",
+       "imageUrl": "/dogs/1573.png",
+       "priceDoge": "66666.00000000",
+       "counterpartyAddress": "DQ2NrR7H9LAdDq9HqdDDTEYHk5DBgXwAys",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-20T15:45:06.965Z",
+       "confirmedAt": "2026-10-20T15:45:06.965Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1433,
+       "walletAddress": "DMYggVWmi6G3s36DARLs9dDuZ58HTgipWR",
+       "activityType": "sale",
+       "inscriptionId": "75f45b955468d914371808a72c9a29abcf066bf56991046c01794905c6d1b2aai0",
+       "inscriptionNumber": 61350557,
+       "dogName": "Doginal Dog #2601",
+       "imageUrl": "/dogs/2601.png",
+       "priceDoge": "280000.00000000",
+       "counterpartyAddress": "DQvvZjG2w5f3P9h7J8Hp3uGhXtUKw6QDF3",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-20T12:37:49.402Z",
+       "confirmedAt": "2026-10-20T12:37:49.402Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1432,
+       "walletAddress": "DMYggVWmi6G3s36DARLs9dDuZ58HTgipWR",
+       "activityType": "sale",
+       "inscriptionId": "251e398e7dc0afd870db886592d956a2ce451668d387c9dc3db20c4b4454284fi0",
+       "inscriptionNumber": 61352613,
+       "dogName": "Doginal Dog #3826",
+       "imageUrl": "/dogs/3826.png",
+       "priceDoge": "160000.00000000",
+       "counterpartyAddress": "DQvvZjG2w5f3P9h7J8Hp3uGhXtUKw6QDF3",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-20T12:36:41.669Z",
+       "confirmedAt": "2026-10-20T12:36:41.669Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1431,
+       "walletAddress": "D5xpp4zwFkCW5yfk5dmdcVRZbNLZAQV6Um",
+       "activityType": "sale",
+       "inscriptionId": "ae18422ff834fecae931743cbdc495c610538c4aee4b64d43ea497a00cf3dc1fi0",
+       "inscriptionNumber": 61350005,
+       "dogName": "Doginal Dog #6534",
+       "imageUrl": "/dogs/6534.png",
+       "priceDoge": "48999.00000000",
+       "counterpartyAddress": "DFjxoYiGuuRuQVNmRLkNitk14ZtQgxnxUD",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-20T11:46:08.391Z",
+       "confirmedAt": "2026-10-20T11:46:08.391Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1429,
+       "walletAddress": "DPu85dq6us6SrX6mmEtNCcNYN8HkzHUBMj",
+       "activityType": "sale",
+       "inscriptionId": "b994da23fb836197b5973d2694a71f6bc57e67acc63dd4c71fc7337bbe9a5113i0",
+       "inscriptionNumber": 61345495,
+       "dogName": "Doginal Dog #146",
+       "imageUrl": "/dogs/146.png",
+       "priceDoge": "79000.00000000",
+       "counterpartyAddress": "DQ2NrR7H9LAdDq9HqdDDTEYHk5DBgXwAys",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-19T02:11:53.521Z",
+       "confirmedAt": "2026-10-19T02:11:53.521Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1427,
+       "walletAddress": "DGCXf5MxvdYietakFLRvcfEjc3SxwBh4zx",
+       "activityType": "sale",
+       "inscriptionId": "1f570d3aca89a4e33f626a7046656795a53678e03ede5df1cf54a1c52768c2a6i0",
+       "inscriptionNumber": 61352929,
+       "dogName": "Doginal Dog #3662",
+       "imageUrl": "/dogs/3662.png",
+       "priceDoge": "47750.00000000",
+       "counterpartyAddress": "DQzXLvWbu1U4CGHNurrHrVApN3Vvekb3wv",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-19T01:50:24.022Z",
+       "confirmedAt": "2026-10-19T01:50:24.022Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1426,
+       "walletAddress": "DMYggVWmi6G3s36DARLs9dDuZ58HTgipWR",
+       "activityType": "sale",
+       "inscriptionId": "f182dcb4a0bd58b4d5efa9c37ee0b238cca04841e47edfd270648db794f0e00ci0",
+       "inscriptionNumber": 61349271,
+       "dogName": "Doginal Dog #6636",
+       "imageUrl": "/dogs/6636.png",
+       "priceDoge": "135000.00000000",
+       "counterpartyAddress": "DHVUJeZv94B69hfqj7j9GDPjakrypCNgtF",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-18T22:33:07.158Z",
+       "confirmedAt": "2026-10-18T22:33:07.158Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1424,
+       "walletAddress": "DSkfzV6z7B3hYMsV13XFprhQHFYjqisGeU",
+       "activityType": "sale",
+       "inscriptionId": "a164eec8323045e53ad104b11c177aec4f91b50bb28b33bf3671c5ebaad3b4e7i0",
+       "inscriptionNumber": 61349517,
+       "dogName": "Doginal Dog #7176",
+       "imageUrl": "/dogs/7176.png",
+       "priceDoge": "49000.00000000",
+       "counterpartyAddress": "D5cecoNNTWD43QU9nqK2SUMBUU5BNs32o1",
+       "txid": "baf5137075cf4e6d8ad5b816e4f469b8c383bb5424ee9d2f6cc22dc70fc291d4",
+       "listingId": 6340,
+       "status": "confirmed",
+       "createdAt": "2026-10-17T22:49:57.561Z",
+       "confirmedAt": "2026-10-17T23:20:02.603Z",
+       "isManual": false,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1421,
+       "walletAddress": "DEX1LxdgGvDfTDLFZHX5VeGMaAEHZ1m2x8",
+       "activityType": "sale",
+       "inscriptionId": "06e2df7702cc437dea3a55e7e69b667fcb41804e5ae68640da212528159200a4i0",
+       "inscriptionNumber": 61350811,
+       "dogName": "Doginal Dog #2015",
+       "imageUrl": "/dogs/2015.png",
+       "priceDoge": "55250.00000000",
+       "counterpartyAddress": "DHaJ3Jeb7Xp7ptVqvWqKTfz1WP9FJDhGLw",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-08T16:01:05.090Z",
+       "confirmedAt": "2026-10-08T16:01:05.090Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1419,
+       "walletAddress": "DBD8DK2zim1mfGwrLqGMqDm613dKwjkd5K",
+       "activityType": "sale",
+       "inscriptionId": "76e38cf20546c32ba9b6d358910f7e73a200c6323016cc1f5185c73bac1e31d2i0",
+       "inscriptionNumber": 61345506,
+       "dogName": "Doginal Dog #423",
+       "imageUrl": "/dogs/423.png",
+       "priceDoge": "48800.00000000",
+       "counterpartyAddress": "DGRepiZydSGhcnj3vfvFZ2LdkxVNB7dEvP",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-06T12:27:46.964Z",
+       "confirmedAt": "2026-10-06T12:27:46.964Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1418,
+       "walletAddress": "DGGjtYhEAdGQfsrfawW7SnTmyZyz7EL4D6",
+       "activityType": "sale",
+       "inscriptionId": "f5d84584ff475eb581c1119a4f6457d6ab0326612f7ebf16d91b740bd4ecd3e6i0",
+       "inscriptionNumber": 61344017,
+       "dogName": "Doginal Dog #341",
+       "imageUrl": "/dogs/341.png",
+       "priceDoge": "62000.00000000",
+       "counterpartyAddress": "DPUgBNfzK8jq5JrdwwxMqmkgXk52DQKHxe",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-04T16:33:48.312Z",
+       "confirmedAt": "2026-10-04T16:33:48.312Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1417,
+       "walletAddress": "D8q3wCzsE3xYHsY523d9Bghbg2QjjDBauV",
+       "activityType": "sale",
+       "inscriptionId": "2b0e98e8f4a65f3e0feaed688b6ee8ccf8a3dff13729e6b1658d8d77b5b3c61ai0",
+       "inscriptionNumber": 61354822,
+       "dogName": "Doginal Dog #8511",
+       "imageUrl": "/dogs/8511.png",
+       "priceDoge": "50750.00000000",
+       "counterpartyAddress": "DSyCegqatuQRdsuUXr1guknufJS34q3cZR",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-04T15:52:25.902Z",
+       "confirmedAt": "2026-10-04T15:52:25.902Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1416,
+       "walletAddress": "DRbHKafQ3uAZAaf3e7oPme2k46uYtBSyKB",
+       "activityType": "sale",
+       "inscriptionId": "87f3d1c741847d893c7dee43b2408e30f6fb2839671fba93659b3c802a83fc84i0",
+       "inscriptionNumber": 61338728,
+       "dogName": "Doginal Dog #605",
+       "imageUrl": "/dogs/605.png",
+       "priceDoge": "62500.00000000",
+       "counterpartyAddress": "DAT85T5GQ6HJdrhv2iurPdQ8h9UiEXzKtf",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-02T15:40:38.726Z",
+       "confirmedAt": "2026-10-02T15:40:38.726Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1414,
+       "walletAddress": "DKBkWtjL7igTSroTWKYtei8Boxhd9tBrNT",
+       "activityType": "sale",
+       "inscriptionId": "355572bc068b8b7f24be06358a9c484d73dbbfbb84cd63ccde26050feccfc8b9i0",
+       "inscriptionNumber": 61350663,
+       "dogName": "Doginal Dog #3557",
+       "imageUrl": "/dogs/3557.png",
+       "priceDoge": "165000.00000000",
+       "counterpartyAddress": "DR2ETiJFRb3dJrVgwary9T9mZcJyv43cLJ",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-10-02T02:08:28.607Z",
+       "confirmedAt": "2026-10-02T02:08:28.607Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1412,
+       "walletAddress": "DH37fXDBAKUgYJA7Pd8gpGmbWRFYA5V528",
+       "activityType": "sale",
+       "inscriptionId": "7bae80f1fc0defe2ee1b64979a117da3be6cb7005c8dfc51eabfd062096133bai0",
+       "inscriptionNumber": 61353129,
+       "dogName": "Doginal Dog #2178",
+       "imageUrl": "/dogs/2178.png",
+       "priceDoge": "63000.00000000",
+       "counterpartyAddress": "D5f239wwYyXDvrzGkPDoDi1JSv8enRV4oi",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-30T21:33:25.148Z",
+       "confirmedAt": "2026-09-30T21:33:25.148Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1410,
+       "walletAddress": "DKoRXg2uAMVTLsLjesgrwyFti41d5X7v6Q",
+       "activityType": "sale",
+       "inscriptionId": "1711d218c33225f4cc1b6fb06fbbb5da7f9ca636c5bd5a8e63b416f897440a15i0",
+       "inscriptionNumber": 61354515,
+       "dogName": "Doginal Dog #9422",
+       "imageUrl": "/dogs/9422.png",
+       "priceDoge": "51350.00000000",
+       "counterpartyAddress": "DEgYPXG94VkJKUxXNqgMLLRwcLbUDHPjCw",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-29T16:50:17.125Z",
+       "confirmedAt": "2026-09-29T16:50:17.125Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1409,
+       "walletAddress": "DNCgRn4WiYqhJpjjLcoAk2GqhLfRrQdoTp",
+       "activityType": "sale",
+       "inscriptionId": "e0fd63a708a3d630774cb2ef06c9b8a2e228159c9d7738dbda378cab795302b4i0",
+       "inscriptionNumber": 61347218,
+       "dogName": "Doginal Dog #7813",
+       "imageUrl": "/dogs/7813.png",
+       "priceDoge": "64750.00000000",
+       "counterpartyAddress": "DHEfghh7nKgy6dwvmJw9aNUiUuWrKYXeb9",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-28T23:48:00.776Z",
+       "confirmedAt": "2026-09-28T23:48:00.776Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1408,
+       "walletAddress": "DHReEi5s4j5cvc64thScyGspNjYCGhGw9c",
+       "activityType": "sale",
+       "inscriptionId": "d7c865b630a6d842b21f85c53d27e87be1619ec9bea6d3e0a92366b1ef895addi0",
+       "inscriptionNumber": 61346116,
+       "dogName": "Doginal Dog #6659",
+       "imageUrl": "/dogs/6659.png",
+       "priceDoge": "51750.00000000",
+       "counterpartyAddress": "DSM2G3rQqfNyXw9kd4w9A3sRRhiCkxFxhL",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-27T11:57:40.868Z",
+       "confirmedAt": "2026-09-27T11:57:40.868Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1407,
+       "walletAddress": "DMojAGfFNLbGAsnDrhGBy7PFKEc2RLL3B9",
+       "activityType": "sale",
+       "inscriptionId": "47b0b1a042924b750af700c7ddedaabea61fcb1193105a952c6651a8f58702e3i0",
+       "inscriptionNumber": 61350751,
+       "dogName": "Doginal Dog #3608",
+       "imageUrl": "/dogs/3608.png",
+       "priceDoge": "51000.00000000",
+       "counterpartyAddress": "DQ3vdh7MJTM1m3yJPneYKKNLB4yquJNoXQ",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-25T20:20:49.921Z",
+       "confirmedAt": "2026-09-25T20:20:49.921Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1406,
+       "walletAddress": "DFADZvMreQQzKN6CNC9iyRyXdvQTTZ4LL9",
+       "activityType": "sale",
+       "inscriptionId": "a90a2fe0d5eb8a29a82e060c57d9027997c73e11c32948fb75e4aee4d52b6c57i0",
+       "inscriptionNumber": 61340990,
+       "dogName": "Doginal Dog #1232",
+       "imageUrl": "/dogs/1232.png",
+       "priceDoge": "58000.00000000",
+       "counterpartyAddress": "DGJpZPSgtvY3VvW4v1je9ZpHFb2PuB8jid",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-24T21:18:03.231Z",
+       "confirmedAt": "2026-09-24T21:18:03.231Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1405,
+       "walletAddress": "D83GJHvGVE3XJQx3zbjHvS1NNu1HaUbABr",
+       "activityType": "sale",
+       "inscriptionId": "6c196a42bfb589e6e0c3e312e3d2f3ee4414231dbe7fc5aa2873321b42ec8547i0",
+       "inscriptionNumber": 61352471,
+       "dogName": "Doginal Dog #3205",
+       "imageUrl": "/dogs/3205.png",
+       "priceDoge": "49250.00000000",
+       "counterpartyAddress": "DDpfXmh7LNSUEMd1ApLuGxnmXp5uB8CHoD",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-23T13:02:41.460Z",
+       "confirmedAt": "2026-09-23T13:02:41.460Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1404,
+       "walletAddress": "DLgCEgvJDYQT2Qp8Bq2EDriENYvjVSpkJB",
+       "activityType": "sale",
+       "inscriptionId": "2e8620bb50aa1503f0e1cf23bf00bcce6060c0d2f3626ce6808327c8a0f06b62i0",
+       "inscriptionNumber": 61345549,
+       "dogName": "Doginal Dog #143",
+       "imageUrl": "/dogs/143.png",
+       "priceDoge": "49000.00000000",
+       "counterpartyAddress": "DKgbEHWupWBdBGgtpuqJBWDRnZS4S1EHqt",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-22T21:14:58.027Z",
+       "confirmedAt": "2026-09-22T21:14:58.027Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1403,
+       "walletAddress": "DEJ3z6PMtMNTP2GM1CaKJHqWqxaUH39Ws2",
+       "activityType": "sale",
+       "inscriptionId": "d385c6a50dd13c85d16b4aa4bfe00ca0ad917ed097b9910cd4a9aaa4cb124845i0",
+       "inscriptionNumber": 61355039,
+       "dogName": "Doginal Dog #9141",
+       "imageUrl": "/dogs/9141.png",
+       "priceDoge": "63000.00000000",
+       "counterpartyAddress": "D8QkY3RTeaoPFSrPF3TW9tA6r4v4u2yhYD",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-21T22:03:05.724Z",
+       "confirmedAt": "2026-09-21T22:03:05.724Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1402,
+       "walletAddress": "DADKcJMffoVP6o16rXqqXUNPh6SkoMDMJP",
+       "activityType": "sale",
+       "inscriptionId": "aaa2de65decad5ad31673d2c9e6781269aecab531371b76a2a4b7e0b626571f2i0",
+       "inscriptionNumber": 61346806,
+       "dogName": "Doginal Dog #6510",
+       "imageUrl": "/dogs/6510.png",
+       "priceDoge": "64000.00000000",
+       "counterpartyAddress": "DDVNQQUmUppFejGuiqpxEWR7sADgXkBe46",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-21T21:47:27.429Z",
+       "confirmedAt": "2026-09-21T21:47:27.429Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1401,
+       "walletAddress": "DHgBA8XcBCsMywE66uWyCfPvD4hUecgd1T",
+       "activityType": "sale",
+       "inscriptionId": "709c66f49ea34100fe1d14a6ca86d6bd3375e9c54f8e335787ae8bdabdefd842i0",
+       "inscriptionNumber": 61352383,
+       "dogName": "Doginal Dog #2680",
+       "imageUrl": "/dogs/2680.png",
+       "priceDoge": "69696.00000000",
+       "counterpartyAddress": "DStKUAm3SgH4TAQZd8FHdL3kguTMY11Mbs",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-21T21:20:48.855Z",
+       "confirmedAt": "2026-09-21T21:20:48.855Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1400,
+       "walletAddress": "DArJwfz9FqnuG2svWAKd5HRBtxtFVz46iu",
+       "activityType": "sale",
+       "inscriptionId": "3eee8008230746f6e51d0f4feefff23044dd12cf12cfb83436ad3b0ea2008399i0",
+       "inscriptionNumber": 61353593,
+       "dogName": "Doginal Dog #3512",
+       "imageUrl": "/dogs/3512.png",
+       "priceDoge": "57500.00000000",
+       "counterpartyAddress": "DFxRYMbbUaw7DFXorhTqgDe324FQB7Sk9d",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-21T16:45:00.959Z",
+       "confirmedAt": "2026-09-21T16:45:00.959Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1399,
+       "walletAddress": "DMPQfNrBArE5ekCYmoXzs7s2NVjsa9roff",
+       "activityType": "sale",
+       "inscriptionId": "8633a4cec95e1c4ce5340b257ce797619e4b919beb2ecc866f205838fef3e751i0",
+       "inscriptionNumber": 61340498,
+       "dogName": "Doginal Dog #575",
+       "imageUrl": "/dogs/575.png",
+       "priceDoge": "49250.00000000",
+       "counterpartyAddress": "DKNwwTg3iZDDr4yAw9cFCsZmfgKm3Mq6ha",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-20T12:01:06.966Z",
+       "confirmedAt": "2026-09-20T12:01:06.966Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1397,
+       "walletAddress": "DDGRezYvKa5bCHumAhg3EJwUhVWBnmgggy",
+       "activityType": "sale",
+       "inscriptionId": "87fef5adf67079276df697c048109b57bd82211fb1a26422bdb43a582c8c0a5ci0",
+       "inscriptionNumber": 61351155,
+       "dogName": "Doginal Dog #2149",
+       "imageUrl": "/dogs/2149.png",
+       "priceDoge": "63000.00000000",
+       "counterpartyAddress": "DTQtNAY1aT37h1MECSffSeLQThTuQZu75i",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-18T16:43:29.626Z",
+       "confirmedAt": "2026-09-18T16:43:29.626Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1395,
+       "walletAddress": "DHGwisbQjSimbU2bWasrBtkSHp2jYXiSyd",
+       "activityType": "sale",
+       "inscriptionId": "a90a60ffa58154a087e6771b1033b36e833c2bf506351587d22290bc7d17dd83i0",
+       "inscriptionNumber": 61350608,
+       "dogName": "Doginal Dog #3443",
+       "imageUrl": "/dogs/3443.png",
+       "priceDoge": "50500.00000000",
+       "counterpartyAddress": "DG2EeM9QUHjq41g3KB39RrEm9aHcXr4yXH",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-16T23:10:45.519Z",
+       "confirmedAt": "2026-09-16T23:10:45.519Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1394,
+       "walletAddress": "DGQTaetXsYn5SaMexLCuPRfePk8k9Ja19K",
+       "activityType": "sale",
+       "inscriptionId": "3d3e07e73471a79c7524d8f208e6d66384bf5a757d1ab5266af0daec974385d7i0",
+       "inscriptionNumber": 61338720,
+       "dogName": "Doginal Dog #315",
+       "imageUrl": "/dogs/315.png",
+       "priceDoge": "50333.00000000",
+       "counterpartyAddress": "DDf8qorJ2NDGarxP6r3BK8Tqij4vrjy81J",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-16T12:37:21.764Z",
+       "confirmedAt": "2026-09-16T12:37:21.764Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1393,
+       "walletAddress": "D83MHkYjGZdFUEX68RtrYhstKyW4X9ks6w",
+       "activityType": "sale",
+       "inscriptionId": "09edd546be7b5e88a6f586ee0ef52fa5dd63c0d9713cb4066f194d8666d705fbi0",
+       "inscriptionNumber": 61342603,
+       "dogName": "Doginal Dog #694",
+       "imageUrl": "/dogs/694.png",
+       "priceDoge": "70000.00000000",
+       "counterpartyAddress": "DCizP8BEM7N57rPLs4geUbzQi57WABPNuP",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-15T17:11:33.203Z",
+       "confirmedAt": "2026-09-15T17:11:33.203Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1392,
+       "walletAddress": "DHmgf6eZgo7bUALWe56xQf22qmp43yZGj1",
+       "activityType": "sale",
+       "inscriptionId": "e9f51658be4eca39968b7fd4abf256fb67d9aae9c6aff7fabf5186fe40de2493i0",
+       "inscriptionNumber": 61354891,
+       "dogName": "Doginal Dog #8089",
+       "imageUrl": "/dogs/8089.png",
+       "priceDoge": "72150.00000000",
+       "counterpartyAddress": "DGJpZPSgtvY3VvW4v1je9ZpHFb2PuB8jid",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-14T13:02:21.251Z",
+       "confirmedAt": "2026-09-14T13:02:21.251Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1390,
+       "walletAddress": "DE1pXBDET6CY4VWVDNw1XZ3UE2pM9gvGFN",
+       "activityType": "sale",
+       "inscriptionId": "d88b746f14f017a1cdb91130c53c150d84630946a8c0fd7ff83cdf1b2e8d6f96i0",
+       "inscriptionNumber": 61343957,
+       "dogName": "Doginal Dog #1173",
+       "imageUrl": "/dogs/1173.png",
+       "priceDoge": "64000.00000000",
+       "counterpartyAddress": "DEgYPXG94VkJKUxXNqgMLLRwcLbUDHPjCw",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-13T16:25:37.705Z",
+       "confirmedAt": "2026-09-13T16:25:37.705Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1389,
+       "walletAddress": "DH1hUMnMkLyBytrwmPkQXzBnfswoPRmH1X",
+       "activityType": "sale",
+       "inscriptionId": "b9db63671957b8690d826f19b5a612c133f331c0db420514ccac0b9da9348f1ai0",
+       "inscriptionNumber": 61350284,
+       "dogName": "Doginal Dog #3682",
+       "imageUrl": "/dogs/3682.png",
+       "priceDoge": "74000.00000000",
+       "counterpartyAddress": "DNDSC5Cw7rpa7CqJHRXYyuFGbAPFQmjPkd",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-12T16:10:51.718Z",
+       "confirmedAt": "2026-09-12T16:10:51.718Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1388,
+       "walletAddress": "D8QkY3RTeaoPFSrPF3TW9tA6r4v4u2yhYD",
+       "activityType": "sale",
+       "inscriptionId": "e56cbc556c7c6861b4bc6d72ba4c2cf08dad0cb5fcab975a2d3249c5ef9edee5i0",
+       "inscriptionNumber": 61354322,
+       "dogName": "Doginal Dog #9624",
+       "imageUrl": "/dogs/9624.png",
+       "priceDoge": "67000.00000000",
+       "counterpartyAddress": "DStKUAm3SgH4TAQZd8FHdL3kguTMY11Mbs",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-08T18:54:16.631Z",
+       "confirmedAt": "2026-09-08T18:54:16.631Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1383,
+       "walletAddress": "DC4mrD61VR9TnrBBC7XV6nHDfFyKL12vSW",
+       "activityType": "sale",
+       "inscriptionId": "f554cc2e8cb7d8d12fb68602f2eaaec061e3037145c8143a89f22809aa38b853i0",
+       "inscriptionNumber": 61353756,
+       "dogName": "Doginal Dog #2150",
+       "imageUrl": "/dogs/2150.png",
+       "priceDoge": "55000.00000000",
+       "counterpartyAddress": "DFKAosgjLQVBbcKKU1QrxLoPdYp9ysRA54",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-06T15:42:13.709Z",
+       "confirmedAt": "2026-09-06T15:42:13.709Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1382,
+       "walletAddress": "DLgCEgvJDYQT2Qp8Bq2EDriENYvjVSpkJB",
+       "activityType": "sale",
+       "inscriptionId": "00f1a44b50cfa303c82db6e38546b41b96f05ba1f78c0d18630a0ddab3e5d129i0",
+       "inscriptionNumber": 61340531,
+       "dogName": "Doginal Dog #1815",
+       "imageUrl": "/dogs/1815.png",
+       "priceDoge": "65000.00000000",
+       "counterpartyAddress": "DA54YGYqQvLCC6XjwT1Yzwa8fPM12ovVD5",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-09-06T15:00:33.686Z",
+       "confirmedAt": "2026-09-06T15:00:33.686Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1380,
+       "walletAddress": "D9DMUdDp6bMXZe6JHe7L1uYvHoFsJaJbKt",
+       "activityType": "sale",
+       "inscriptionId": "e854f9c6bf03e1020132af443dded56474309d49269e5b0b2791bf0e815454e6i0",
+       "inscriptionNumber": 61350837,
+       "dogName": "Doginal Dog #2448",
+       "imageUrl": "/dogs/2448.png",
+       "priceDoge": "44000.00000000",
+       "counterpartyAddress": "D6LDzDK6mmnZsWn8NHD3Y4Fn44UmZczjPi",
+       "txid": "01204b0fc08cd873d4cff2f65602c2e85f985b0c1259e0e77b6579a79ab65132",
+       "listingId": 6075,
+       "status": "pending",
+       "createdAt": "2026-09-03T08:18:28.147Z",
+       "confirmedAt": null,
+       "isManual": false,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1377,
+       "walletAddress": "DMYggVWmi6G3s36DARLs9dDuZ58HTgipWR",
+       "activityType": "sale",
+       "inscriptionId": "b07b74993b1ff3f89c120f76709da2eb2eb012e18ed886933ad6ffe45303012fi0",
+       "inscriptionNumber": 61354967,
+       "dogName": "Doginal Dog #9468",
+       "imageUrl": "/dogs/9468.png",
+       "priceDoge": null,
+       "counterpartyAddress": "DEcZHL1rXK8sz4pXxzBcgCMeTrbh2MiYio",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-08-30T23:10:12.516Z",
+       "confirmedAt": "2026-08-30T23:10:12.516Z",
+       "isManual": true,
+       "otc": true,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1376,
+       "walletAddress": "DPu85dq6us6SrX6mmEtNCcNYN8HkzHUBMj",
+       "activityType": "sale",
+       "inscriptionId": "df423fb638c0d7ac4cbfe683307e096b9b1c52b93f94887a560eaec72b893f0ci0",
+       "inscriptionNumber": 61344051,
+       "dogName": "Doginal Dog #454",
+       "imageUrl": "/dogs/454.png",
+       "priceDoge": "57000.00000000",
+       "counterpartyAddress": "DFxRYMbbUaw7DFXorhTqgDe324FQB7Sk9d",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-08-30T20:26:02.545Z",
+       "confirmedAt": "2026-08-30T20:26:02.545Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1375,
+       "walletAddress": "DADKcJMffoVP6o16rXqqXUNPh6SkoMDMJP",
+       "activityType": "sale",
+       "inscriptionId": "fd116c4c4ae9c0ed1d8e632fb18e314e39a7a0bfee71b7c45b44ab306e34372ai0",
+       "inscriptionNumber": 61347589,
+       "dogName": "Doginal Dog #7132",
+       "imageUrl": "/dogs/7132.png",
+       "priceDoge": "75222.00000000",
+       "counterpartyAddress": "DLBDhuvSsPJ2VpTjxDdR7s1sJeXfq1RDFH",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-08-29T18:29:07.673Z",
+       "confirmedAt": "2026-08-29T18:29:07.673Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1374,
+       "walletAddress": "DAarmAmqysQ4ZWf7ZXRiMWBLzosx5ffgWW",
+       "activityType": "sale",
+       "inscriptionId": "5caa7d52303abbda45032f7bb32f8dfffc6ca8672f60eb0adc3843dd4283b51ci0",
+       "inscriptionNumber": 61345843,
+       "dogName": "Doginal Dog #1887",
+       "imageUrl": "/dogs/1887.png",
+       "priceDoge": "69000.00000000",
+       "counterpartyAddress": "DEbFxfsVjaEU3HXZKbBKz7e9jUS4zwJkq1",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-08-28T21:43:50.112Z",
+       "confirmedAt": "2026-08-28T21:43:50.112Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1372,
+       "walletAddress": "DNDSC5Cw7rpa7CqJHRXYyuFGbAPFQmjPkd",
+       "activityType": "sale",
+       "inscriptionId": "86a2ea2c6ef5ff866a9346970b8ab0e94ad38f3eb34361c1e48c3f9ec929e39fi0",
+       "inscriptionNumber": 61351093,
+       "dogName": "Doginal Dog #2188",
+       "imageUrl": "/dogs/2188.png",
+       "priceDoge": "67000.00000000",
+       "counterpartyAddress": "DSPAf3B4CMzF16kiBuks1ydrQTj2mr9xFY",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-08-28T13:24:56.448Z",
+       "confirmedAt": "2026-08-28T13:24:56.448Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      },
+      {
+       "id": 1371,
+       "walletAddress": "D83MHkYjGZdFUEX68RtrYhstKyW4X9ks6w",
+       "activityType": "sale",
+       "inscriptionId": "826bb5639567f52d011d873778713f5c35f7e58ff694c70b31f19a97d6c16a9di0",
+       "inscriptionNumber": 61342523,
+       "dogName": "Doginal Dog #1835",
+       "imageUrl": "/dogs/1835.png",
+       "priceDoge": "66000.00000000",
+       "counterpartyAddress": "DSPAf3B4CMzF16kiBuks1ydrQTj2mr9xFY",
+       "txid": null,
+       "listingId": null,
+       "status": "confirmed",
+       "createdAt": "2026-08-28T13:24:16.550Z",
+       "confirmedAt": "2026-08-28T13:24:16.550Z",
+       "isManual": true,
+       "otc": false,
+       "source": "ddmarket"
+      }
+     ],
+     "nextCursor": 1371
+    },
+    "meta": {
+     "values": {
+      "activities.0.createdAt": [
+       "Date"
+      ],
+      "activities.0.confirmedAt": [
+       "Date"
+      ],
+      "activities.1.createdAt": [
+       "Date"
+      ],
+      "activities.1.confirmedAt": [
+       "Date"
+      ],
+      "activities.2.createdAt": [
+       "Date"
+      ],
+      "activities.2.confirmedAt": [
+       "Date"
+      ],
+      "activities.3.createdAt": [
+       "Date"
+      ],
+      "activities.3.confirmedAt": [
+       "Date"
+      ],
+      "activities.4.createdAt": [
+       "Date"
+      ],
+      "activities.4.confirmedAt": [
+       "Date"
+      ],
+      "activities.5.createdAt": [
+       "Date"
+      ],
+      "activities.6.createdAt": [
+       "Date"
+      ],
+      "activities.6.confirmedAt": [
+       "Date"
+      ],
+      "activities.7.createdAt": [
+       "Date"
+      ],
+      "activities.7.confirmedAt": [
+       "Date"
+      ],
+      "activities.8.createdAt": [
+       "Date"
+      ],
+      "activities.8.confirmedAt": [
+       "Date"
+      ],
+      "activities.9.createdAt": [
+       "Date"
+      ],
+      "activities.9.confirmedAt": [
+       "Date"
+      ],
+      "activities.10.createdAt": [
+       "Date"
+      ],
+      "activities.10.confirmedAt": [
+       "Date"
+      ],
+      "activities.11.createdAt": [
+       "Date"
+      ],
+      "activities.11.confirmedAt": [
+       "Date"
+      ],
+      "activities.12.createdAt": [
+       "Date"
+      ],
+      "activities.12.confirmedAt": [
+       "Date"
+      ],
+      "activities.13.createdAt": [
+       "Date"
+      ],
+      "activities.13.confirmedAt": [
+       "Date"
+      ],
+      "activities.14.createdAt": [
+       "Date"
+      ],
+      "activities.14.confirmedAt": [
+       "Date"
+      ],
+      "activities.15.createdAt": [
+       "Date"
+      ],
+      "activities.15.confirmedAt": [
+       "Date"
+      ],
+      "activities.16.createdAt": [
+       "Date"
+      ],
+      "activities.16.confirmedAt": [
+       "Date"
+      ],
+      "activities.17.createdAt": [
+       "Date"
+      ],
+      "activities.17.confirmedAt": [
+       "Date"
+      ],
+      "activities.18.createdAt": [
+       "Date"
+      ],
+      "activities.18.confirmedAt": [
+       "Date"
+      ],
+      "activities.19.createdAt": [
+       "Date"
+      ],
+      "activities.19.confirmedAt": [
+       "Date"
+      ],
+      "activities.20.createdAt": [
+       "Date"
+      ],
+      "activities.20.confirmedAt": [
+       "Date"
+      ],
+      "activities.21.createdAt": [
+       "Date"
+      ],
+      "activities.21.confirmedAt": [
+       "Date"
+      ],
+      "activities.22.createdAt": [
+       "Date"
+      ],
+      "activities.22.confirmedAt": [
+       "Date"
+      ],
+      "activities.23.createdAt": [
+       "Date"
+      ],
+      "activities.23.confirmedAt": [
+       "Date"
+      ],
+      "activities.24.createdAt": [
+       "Date"
+      ],
+      "activities.24.confirmedAt": [
+       "Date"
+      ],
+      "activities.25.createdAt": [
+       "Date"
+      ],
+      "activities.25.confirmedAt": [
+       "Date"
+      ],
+      "activities.26.createdAt": [
+       "Date"
+      ],
+      "activities.26.confirmedAt": [
+       "Date"
+      ],
+      "activities.27.createdAt": [
+       "Date"
+      ],
+      "activities.27.confirmedAt": [
+       "Date"
+      ],
+      "activities.28.createdAt": [
+       "Date"
+      ],
+      "activities.28.confirmedAt": [
+       "Date"
+      ],
+      "activities.29.createdAt": [
+       "Date"
+      ],
+      "activities.29.confirmedAt": [
+       "Date"
+      ],
+      "activities.30.createdAt": [
+       "Date"
+      ],
+      "activities.30.confirmedAt": [
+       "Date"
+      ],
+      "activities.31.createdAt": [
+       "Date"
+      ],
+      "activities.31.confirmedAt": [
+       "Date"
+      ],
+      "activities.32.createdAt": [
+       "Date"
+      ],
+      "activities.32.confirmedAt": [
+       "Date"
+      ],
+      "activities.33.createdAt": [
+       "Date"
+      ],
+      "activities.33.confirmedAt": [
+       "Date"
+      ],
+      "activities.34.createdAt": [
+       "Date"
+      ],
+      "activities.34.confirmedAt": [
+       "Date"
+      ],
+      "activities.35.createdAt": [
+       "Date"
+      ],
+      "activities.35.confirmedAt": [
+       "Date"
+      ],
+      "activities.36.createdAt": [
+       "Date"
+      ],
+      "activities.36.confirmedAt": [
+       "Date"
+      ],
+      "activities.37.createdAt": [
+       "Date"
+      ],
+      "activities.37.confirmedAt": [
+       "Date"
+      ],
+      "activities.38.createdAt": [
+       "Date"
+      ],
+      "activities.38.confirmedAt": [
+       "Date"
+      ],
+      "activities.39.createdAt": [
+       "Date"
+      ],
+      "activities.39.confirmedAt": [
+       "Date"
+      ],
+      "activities.40.createdAt": [
+       "Date"
+      ],
+      "activities.40.confirmedAt": [
+       "Date"
+      ],
+      "activities.41.createdAt": [
+       "Date"
+      ],
+      "activities.41.confirmedAt": [
+       "Date"
+      ],
+      "activities.42.createdAt": [
+       "Date"
+      ],
+      "activities.42.confirmedAt": [
+       "Date"
+      ],
+      "activities.43.createdAt": [
+       "Date"
+      ],
+      "activities.44.createdAt": [
+       "Date"
+      ],
+      "activities.44.confirmedAt": [
+       "Date"
+      ],
+      "activities.45.createdAt": [
+       "Date"
+      ],
+      "activities.45.confirmedAt": [
+       "Date"
+      ],
+      "activities.46.createdAt": [
+       "Date"
+      ],
+      "activities.46.confirmedAt": [
+       "Date"
+      ],
+      "activities.47.createdAt": [
+       "Date"
+      ],
+      "activities.47.confirmedAt": [
+       "Date"
+      ],
+      "activities.48.createdAt": [
+       "Date"
+      ],
+      "activities.48.confirmedAt": [
+       "Date"
+      ],
+      "activities.49.createdAt": [
+       "Date"
+      ],
+      "activities.49.confirmedAt": [
+       "Date"
+      ]
+     }
+    }
+   }
+  }
+ }
+]

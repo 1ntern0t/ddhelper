@@ -1,0 +1,26 @@
+# Upcoming events shown in the daily digest. Edit by hand; nothing is scraped.
+# Only add events confirmed by an official source, and cite it in `url`.
+
+[[event]]
+name = "DDMIAMI 2026"
+start = 2026-12-07
+end = 2026-12-09
+location = "Wynwood, Miami (primary hotel: Arlo Wynwood)"
+url = "https://doginaldogs.com/events-2026/ddmiami-2026"
+note = "Schedule announced by @doginaldogs on Oct 20, 2026. Includes the first DDL Miami Championship."
+
+# Recurring items. Times are local to `tz`.
+[[recurring]]
+name = "Bark's daily X Space (\"THE GREAT RESET\")"
+time = "17:00"
+tz = "America/New_York"
+days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+url = "https://x.com/barkmeta"
+note = "Observed pattern in @barkmeta's posts (Oct 17-22, 2026), not an official schedule."
+
+# Tournaments: legendsbrackets.com has no public API we could find, so add
+# confirmed brackets here manually, e.g.:
+# [[event]]
+# name = "Legends KOTH"
+# start = 2026-10-24
+# url = "https://legendsbrackets.com/tourney/?t=..."

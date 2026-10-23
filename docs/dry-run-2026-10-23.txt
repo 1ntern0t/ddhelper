@@ -1,0 +1,70 @@
+$ python -m ddhelper dry-run floor
+**Doginal Dogs floor** (official market: market.doginaldogs.com)
+Floor: **47,000 DOGE**  ·  Listed: **267** / 10,000
+30d volume: 2,094,864 DOGE over 30 trades (avg 69,828.80 DOGE)
+24h volume: 56,500 DOGE (1 sale)  ·  7d volume: 1,230,914 DOGE (14 sales)
+ℹ️ 10 of 14 sales in 7d have no tx id (manually recorded by the market; not verified on-chain).
+
+Doggy Market (secondary): floor 23,669 DOGE (-49.6% vs official), 44 listed, 7d: 1 trade / 22,000 DOGE
+⚠️ Doggy Market floor is -50% vs the official market; its listings may be stale or no longer valid.
+⚠️ Thin activity on Doggy Market (1 trade in 7d).
+-# Data as of Fri Oct 23, 12:08 PM ET. Market figures come from the official site's unofficial internal endpoints.
+[exit 0]
+
+$ python -m ddhelper dry-run sales -n 5
+**Recent Doginal Dogs sales** (latest 5, official market)
+**#7001** · 56,500 DOGE · Thu Oct 22, 5:17 PM ET
+  ⚠️ no tx id (manually recorded sale) · <https://market.doginaldogs.com/inscription/9ba2f246beb9b42ffebde8cbaad266f297878587b2ee24eaaf1903b0fba989d9i0>
+**#99** · 75,000 DOGE · Thu Oct 22, 10:16 AM ET
+  ⚠️ no tx id (manually recorded sale) · <https://market.doginaldogs.com/inscription/2e839550ddd27058186b2119be95c4cbbbf87f8b74104373bf163ce8b8e722c0i0>
+**#5755** · 80,000 DOGE · Wed Oct 21, 5:46 PM ET
+  ⚠️ no tx id (manually recorded sale) · <https://market.doginaldogs.com/inscription/f7c880580e0f83c6ca004fe14332c146b0fa0d99e3c9f54b972ac9baa1e4512ci0>
+**#1968** · 60,000 DOGE · Wed Oct 21, 1:43 PM ET
+  tx `74b50620bd…1cf2fb` <https://blockchair.com/dogecoin/transaction/74b50620bd3b39b90b1d63f5503f116c3df026fd203a9d2c7ecfff4b681cf2fb> · <https://market.doginaldogs.com/inscription/2f3b8957ac7ef377ef0535377f1c02c4f4ee8b3fde387a1f9f7a47b1dd277ee6i0>
+**#9118** · 47,999 DOGE · Wed Oct 21, 5:09 AM ET
+  tx `7653afa6dd…fae6d8` <https://blockchair.com/dogecoin/transaction/7653afa6ddbb952525cbac2c59bfa645ab1df9004e2d574a9c75661dfcfae6d8> · <https://market.doginaldogs.com/inscription/d039927506b10fa02edd3d5c3719c58ebfc7b3dce39bec89283127c3e6c09381i0>
+-# 3 of 5 have no on-chain tx id in the market data (recorded manually); treat as unverified.
+[exit 0]
+
+$ python -m ddhelper dry-run digest
+## 🐶 Doginal Dogs daily digest · Fri Oct 23, 2026
+**Market** (official)
+Floor **47,000 DOGE** (+0.0% 24h, +0.0% 7d) · 267 listed
+24h: 1 sale, 56,500 DOGE · 7d: 14 sales, 1,230,914 DOGE
+Top sales: #7001 56,500 DOGE*
+-# * manually recorded, no tx id
+Doggy Market floor 23,669 DOGE — ⚠️ Doggy Market floor is -50% vs the official market; its listings may be stale or no longer valid.
+
+**Upcoming**
+Today 5:00 PM ET: Bark's daily X Space ("THE GREAT RESET") <https://x.com/barkmeta>
+-# Observed pattern in @barkmeta's posts (Oct 17-22, 2026), not an official schedule.
+DDMIAMI 2026: Dec 7–9, 2026 (in 45 days) · Wynwood, Miami (primary hotel: Arlo Wynwood) <https://doginaldogs.com/events-2026/ddmiami-2026>
+
+**Gaps**
+- X posts not included: X_BEARER_TOKEN is not set.
+-# Generated Fri Oct 23, 12:08 PM ET by ddhelper (read-only community bot).
+[exit 0]
+
+$ python -m ddhelper dry-run card renza
+**Renza** (V052) · Epic Neutral Creature
+Mana 7 · ATK 5 / HP 5
+> Add up to 1 Spell, 1 Trap, and 1 Creature from your deck to your hand.
+Card image: <https://ddltcg.com/card_renders/v2/V052.png>
+-# Source: ddltcg.com. DDL TCG card data © Doginal Dogs.
+[exit 0]
+
+$ python -m ddhelper dry-run card V69
+**Bark** (V069) · Uncommon Neutral Creature
+Mana 6 · ATK 4 / HP 4
+> Target a card and shuffle it into its owner's deck.
+Card image: <https://ddltcg.com/card_renders/v2/V069.png>
+-# Source: ddltcg.com. DDL TCG card data © Doginal Dogs.
+[exit 0]
+
+$ python -m ddhelper dry-run alerts
+2026-10-23 12:08:12,916 INFO ddhelper.service: seeded sales state with 25 existing sales
+[sales poll #1] seeded state, would post 0 alert(s) (first run never floods)
+[sales poll #2] would post 0 alert(s)
+[floor poll] baseline set; alert now: none
+[exit 0]
+

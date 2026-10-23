@@ -1,0 +1,22 @@
+(offline render from tests/fixtures: real responses recorded 2026-10-23 ~11:56 AM ET;
+ dummy X token so the X section is exercised; clock = 12:00 PM ET. Not a live X call.)
+
+## 🐶 Doginal Dogs daily digest · Fri Oct 23, 2026
+**Market** (official)
+Floor **47,000 DOGE** (+0.0% 24h, +0.0% 7d) · 267 listed
+24h: 1 sale, 56,500 DOGE · 7d: 14 sales, 1,230,914 DOGE
+Top sales: #7001 56,500 DOGE*
+-# * manually recorded, no tx id
+Doggy Market floor 23,669 DOGE — ⚠️ Doggy Market floor is -50% vs the official market; its listings may be stale or no longer valid.
+
+**On X (last 24h)**
+@doginaldogs · 7:58 PM ET: Red candles for spooky season? The Doginal Dogs community will handle that for you. <https://x.com/doginaldogs/status/2113419853457764693>
+@barkmeta · 5:00 PM ET: (link/media post) <https://x.com/barkmeta/status/2113375044239831329>
+@DDLTCG: no new original posts
+@DDSalesBot posted 1 sale update.
+
+**Upcoming**
+Today 5:00 PM ET: Bark's daily X Space ("THE GREAT RESET") <https://x.com/barkmeta>
+-# Observed pattern in @barkmeta's posts (Oct 17-22, 2026), not an official schedule.
+DDMIAMI 2026: Dec 7–9, 2026 (in 45 days) · Wynwood, Miami (primary hotel: Arlo Wynwood) <https://doginaldogs.com/events-2026/ddmiami-2026>
+-# Generated Fri Oct 23, 12:00 PM ET by ddhelper (read-only community bot).

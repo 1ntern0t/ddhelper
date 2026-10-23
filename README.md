@@ -92,8 +92,8 @@ file in the same schema: a list of objects with `id`, `name`, `class`, `type`,
 
 - The User-Agent identifies the bot: `ddhelper/0.1.0 (Doginal Dogs community helper bot; read-only; +https://x.com/1nternot)`.
 - Polling defaults to 5 minutes (60 s floor). Slash commands share cached results
-  (60 s for market data, 2 min Doggy, 6 h cards), so 100 users running `/floor` cost at
-  most one upstream request per minute. Per-user cooldown is 10 s (60 s for `/digest`).
+  (60 s for market data, 2 min Doggy, 6 h cards), so many users running `/floor` at once
+  still cost only about three upstream requests per minute. Per-user cooldown is 10 s (60 s for `/digest`).
 - At least 1 s between requests to the same host. Timeouts are 15 s. Up to 3 retries
   with jittered exponential backoff on network errors, timeouts and 5xx.
 - 429: `Retry-After` / `x-rate-limit-reset` is honoured. If the wait is over 60 s the

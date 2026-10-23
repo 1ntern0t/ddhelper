@@ -201,7 +201,7 @@ class Renderer:
           out.append(f"@{user}: no new original posts")
           continue
         for p in posts[:3]:
-          text = sanitize(_TCO_RE.sub("", p.text).strip().replace("\n", " "))
+          text = sanitize(re.sub(r"\s+", " ", _TCO_RE.sub("", p.text)).strip())
           if p.space_urls:
             text = "🎙️ X Space " + (text or "")
           elif not text:

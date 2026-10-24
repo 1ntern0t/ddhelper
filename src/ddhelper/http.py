@@ -18,6 +18,8 @@ import aiohttp
 log = logging.getLogger(__name__)
 
 RETRY_STATUSES = frozenset({429, 500, 502, 503, 504})
+# Largest body we will buffer (after decompression). Real responses are < 1 MB.
+MAX_RESPONSE_BYTES = 8 * 1024 * 1024
 
 
 class SourceError(Exception):
@@ -84,6 +86,7 @@ class HttpClient:
     backoff_max: float = 30.0,
     max_rate_limit_wait: float = 60.0,
     min_host_interval: float = 1.0,
+    max_bytes: int = MAX_RESPONSE_BYTES,
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
     session: aiohttp.ClientSession | None = None,
   ):
@@ -94,6 +97,7 @@ class HttpClient:
     self._backoff_max = backoff_max
     self._max_rl_wait = max_rate_limit_wait
     self._min_host_interval = min_host_interval
+    self._max_bytes = max_bytes
     self._sleep = sleep
     self._session = session
     self._own_session = session is None
@@ -134,6 +138,19 @@ class HttpClient:
         await self._sleep(wait)
       self._host_last[host] = time.monotonic()
 
+  async def _read_capped(self, r: aiohttp.ClientResponse, url: str) -> bytes:
+    too_big = SourceError(
+      f"GET {urlsplit(url).netloc}{urlsplit(url).path}: response larger than {self._max_bytes} bytes"
+    )
+    if r.content_length is not None and r.content_length > self._max_bytes:
+      raise too_big
+    body = bytearray()
+    async for part in r.content.iter_chunked(64 * 1024):
+      body += part
+      if len(body) > self._max_bytes:
+        raise too_big
+    return bytes(body)
+
   async def get_json(
     self,
     url: str,
@@ -165,7 +182,7 @@ class HttpClient:
         async with session.get(url, params=params, headers=req_headers, timeout=self._timeout) as r:
           status = r.status
           rheaders = {k: v for k, v in r.headers.items()}
-          body = await r.read()
+          body = await self._read_capped(r, url)
       except (aiohttp.ClientError, TimeoutError) as e:
         last_err = f"{type(e).__name__}: {e}"
         log.warning(

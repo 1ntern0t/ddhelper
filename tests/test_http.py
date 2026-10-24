@@ -128,3 +128,42 @@ def test_parse_retry_after():
   assert parse_retry_after({"Retry-After": "12"}) == 12
   assert parse_retry_after({"x-rate-limit-reset": "1100"}, now=1000) == 100
   assert parse_retry_after({}) is None
+
+
+async def test_oversized_body_rejected(server):
+  server["plan"]["big"] = [(200, {}, '{"x": "' + "a" * 5000 + '"}')]
+  sleeps = []
+  async with client(sleeps, max_bytes=1000) as c:
+    with pytest.raises(SourceError, match="larger than 1000 bytes"):
+      await c.get_json(server["base"] + "/big")
+  assert server["hits"]["big"] == 1  # not retried
+
+
+async def test_oversized_chunked_body_rejected():
+  async def handler(request: web.Request) -> web.StreamResponse:
+    resp = web.StreamResponse(headers={"Content-Type": "application/json"})
+    resp.enable_chunked_encoding()
+    await resp.prepare(request)
+    await resp.write(b'{"x": "')
+    for _ in range(50):
+      await resp.write(b"a" * 1000)
+    await resp.write(b'"}')
+    await resp.write_eof()
+    return resp
+
+  app = web.Application()
+  app.router.add_get("/s", handler)
+  runner = web.AppRunner(app)
+  await runner.setup()
+  site = web.TCPSite(runner, "127.0.0.1", 0)
+  await site.start()
+  port = site._server.sockets[0].getsockname()[1]
+  try:
+    async with client([], max_bytes=10_000) as c:
+      with pytest.raises(SourceError, match="larger than"):
+        await c.get_json(f"http://127.0.0.1:{port}/s")
+    async with client([], max_bytes=100_000) as c:
+      r = await c.get_json(f"http://127.0.0.1:{port}/s")
+      assert len(r.data["x"]) == 50_000
+  finally:
+    await runner.cleanup()

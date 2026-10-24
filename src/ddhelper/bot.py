@@ -147,27 +147,31 @@ class DDHelperBot(discord.Client):
     for part in chunk(text):
       await ch.send(part, allowed_mentions=NO_MENTIONS, suppress_embeds=True)
 
+  # An exception escaping a tasks.loop body stops that loop for good, so each
+  # iteration logs unexpected errors and tries again on the next cycle.
   @tasks.loop(seconds=300)
   async def sales_loop(self) -> None:
     try:
       new = await self.helper.poll_new_sales(self.state)
+      assert self.settings.alert_channel_id  # noqa: S101
+      for s in new:
+        await self._post(self.settings.alert_channel_id, self.renderer.sale_alert(s))
     except SourceError as e:
       log.warning("sales poll skipped: %s", e)
-      return
-    assert self.settings.alert_channel_id  # noqa: S101
-    for s in new:
-      await self._post(self.settings.alert_channel_id, self.renderer.sale_alert(s))
+    except Exception:
+      log.exception("sales poll failed; retrying next cycle")
 
   @tasks.loop(seconds=300)
   async def floor_loop(self) -> None:
     try:
       alert = await self.helper.poll_floor(self.state)
+      if alert:
+        assert self.settings.alert_channel_id  # noqa: S101
+        await self._post(self.settings.alert_channel_id, self.renderer.floor_alert(alert))
     except SourceError as e:
       log.warning("floor poll skipped: %s", e)
-      return
-    if alert:
-      assert self.settings.alert_channel_id  # noqa: S101
-      await self._post(self.settings.alert_channel_id, self.renderer.floor_alert(alert))
+    except Exception:
+      log.exception("floor poll failed; retrying next cycle")
 
   @tasks.loop(hours=24)
   async def digest_loop(self) -> None:
@@ -175,9 +179,13 @@ class DDHelperBot(discord.Client):
     if self.state.get("digest_last_date") == today:
       log.info("digest already posted today")
       return
-    data = await self.helper.digest()
-    assert self.settings.digest_channel_id  # noqa: S101
-    await self._post(self.settings.digest_channel_id, self.renderer.digest(data))
+    try:
+      data = await self.helper.digest()
+      assert self.settings.digest_channel_id  # noqa: S101
+      await self._post(self.settings.digest_channel_id, self.renderer.digest(data))
+    except Exception:
+      log.exception("digest failed; will try again at the next scheduled time")
+      return
     self.state.set("digest_last_date", today)
 
   @sales_loop.before_loop

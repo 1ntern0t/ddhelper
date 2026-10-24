@@ -7,7 +7,7 @@ from datetime import UTC, datetime
 from typing import Any
 
 from ..http import Fetcher, SourceError
-from ._util import parse_iso
+from ._util import finite_float, parse_iso
 
 KOINU = 100_000_000
 
@@ -30,21 +30,22 @@ def parse_doggy(d: Any, fetched_at: datetime | None = None) -> DoggyStats:
   if not isinstance(d, dict):
     raise SourceError("doggy.market: unexpected response shape")
   try:
-    listed_times = [parse_iso(x.get("listedAt")) for x in d.get("recentlyListed") or []]
+    recent = d.get("recentlyListed") or []
+    listed_times = [parse_iso(x.get("listedAt")) for x in recent if isinstance(x, dict)]
     listed_times = [t for t in listed_times if t]
     return DoggyStats(
-      floor=int(d["floorPrice"]) / KOINU,
+      floor=finite_float(d["floorPrice"]) / KOINU,
       listed=int(d["listed"]),
       owners=int(d["owners"]) if d.get("owners") is not None else None,
-      volume_24h=int(d.get("volume24h") or 0) / KOINU,
-      volume_7d=int(d.get("volume7d") or 0) / KOINU,
+      volume_24h=finite_float(d.get("volume24h") or 0) / KOINU,
+      volume_7d=finite_float(d.get("volume7d") or 0) / KOINU,
       trades_24h=int(d.get("trades24h") or 0),
       trades_7d=int(d.get("trades7d") or 0),
       trades_30d=int(d.get("trades30d") or 0),
       newest_listing_at=max(listed_times) if listed_times else None,
       fetched_at=fetched_at or datetime.now(UTC),
     )
-  except (KeyError, TypeError, ValueError) as e:
+  except (KeyError, TypeError, ValueError, OverflowError) as e:
     raise SourceError("doggy.market: missing fields") from e
 
 

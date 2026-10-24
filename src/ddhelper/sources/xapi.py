@@ -17,6 +17,7 @@ from ._util import parse_iso
 
 _SPACE_RE = re.compile(r"https?://(?:www\.)?(?:x|twitter)\.com/i/spaces/[A-Za-z0-9]+", re.I)
 _TCO_ONLY_RE = re.compile(r"^\s*(?:https://t\.co/\w+\s*)+$")
+_ID_RE = re.compile(r"[0-9]{1,20}")
 
 
 class XUnavailable(SourceError):
@@ -53,37 +54,62 @@ class Post:
 def parse_users(payload: Any) -> dict[str, str]:
   if not isinstance(payload, dict):
     raise XUnavailable("X users lookup: unexpected response")
+  rows = payload.get("data") or []
+  if not isinstance(rows, list):
+    raise XUnavailable("X users lookup: unexpected response")
+  # Ids are interpolated into request paths (/users/:id/tweets): digits only.
   return {
     u["username"].lower(): u["id"]
-    for u in payload.get("data") or []
-    if "id" in u and "username" in u
+    for u in rows
+    if isinstance(u, dict)
+    and isinstance(u.get("username"), str)
+    and isinstance(u.get("id"), str)
+    and _ID_RE.fullmatch(u["id"])
   }
+
+
+def _count(m: dict[str, Any], key: str) -> int:
+  try:
+    return max(0, int(m.get(key) or 0))
+  except (TypeError, ValueError, OverflowError):
+    return 0
 
 
 def parse_posts(payload: Any, username: str) -> list[Post]:
   if not isinstance(payload, dict):
     raise XUnavailable("X timeline: unexpected response")
+  rows = payload.get("data") or []
+  if not isinstance(rows, list):
+    raise XUnavailable("X timeline: unexpected response")
   out = []
-  for p in payload.get("data") or []:
-    created = parse_iso(p.get("created_at"))
-    if not created or "id" not in p:
+  for p in rows:
+    if not isinstance(p, dict):
       continue
-    m = p.get("public_metrics") or {}
+    created = parse_iso(p.get("created_at"))
+    # The id becomes part of a link we post; anything but digits is dropped.
+    if not created or not _ID_RE.fullmatch(str(p.get("id"))):
+      continue
+    m = p.get("public_metrics")
+    m = m if isinstance(m, dict) else {}
+    ents = p.get("entities")
+    ent_urls = ents.get("urls") if isinstance(ents, dict) else None
     urls = tuple(
-      u.get("unwound_url") or u.get("expanded_url") or ""
-      for u in (p.get("entities") or {}).get("urls") or []
+      str(u.get("unwound_url") or u.get("expanded_url") or "")
+      for u in (ent_urls if isinstance(ent_urls, list) else [])
+      if isinstance(u, dict)
     )
-    refs = {r.get("type") for r in p.get("referenced_tweets") or []}
+    refs = p.get("referenced_tweets")
+    refs = {r.get("type") for r in refs if isinstance(r, dict)} if isinstance(refs, list) else set()
     out.append(
       Post(
         id=str(p["id"]),
         username=username,
         created_at=created,
         text=str(p.get("text") or ""),
-        likes=int(m.get("like_count") or 0),
-        reposts=int(m.get("retweet_count") or 0),
-        replies=int(m.get("reply_count") or 0),
-        views=int(m["impression_count"]) if m.get("impression_count") is not None else None,
+        likes=_count(m, "like_count"),
+        reposts=_count(m, "retweet_count"),
+        replies=_count(m, "reply_count"),
+        views=_count(m, "impression_count") if m.get("impression_count") is not None else None,
         urls=tuple(u for u in urls if u),
         is_quote="quoted" in refs,
       )

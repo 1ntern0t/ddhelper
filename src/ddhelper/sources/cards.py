@@ -24,6 +24,7 @@ from ..http import Fetcher, SourceError
 
 _QUERY_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9 '\-.]{0,39}$")
 _SERIAL_RE = re.compile(r"^V\d{1,3}$", re.I)
+_SAFE_URL_RE = re.compile(r"https://[^\s<>\"'`]{1,500}")
 
 
 @dataclass(frozen=True)
@@ -57,6 +58,13 @@ def _int(v: Any) -> int | None:
     return None
 
 
+def _keywords(c: dict[str, Any]) -> tuple[str, ...]:
+  kws = c.get("keywords")
+  if isinstance(kws, list | tuple):
+    return tuple(str(k) for k in kws)
+  return (str(c["keyword"]),) if c.get("keyword") else ()
+
+
 def parse_cards(data: Any, image_base: str = "https://ddltcg.com") -> list[Card]:
   rows = data.get("cards") if isinstance(data, dict) else data
   if not isinstance(rows, list):
@@ -69,6 +77,8 @@ def parse_cards(data: Any, image_base: str = "https://ddltcg.com") -> list[Card]
       continue  # unrevealed cards are redacted upstream; never show them
     serial = str(c["id"]).strip().upper()
     img = c.get("image_url")
+    if not isinstance(img, str) or not _SAFE_URL_RE.fullmatch(img):
+      img = None  # only plain https URLs: it is posted as a link and an embed image
     if not img and _SERIAL_RE.match(serial):
       # Same path the official gallery uses (cardRenderPath in /js/config.js).
       img = f"{image_base.rstrip('/')}/card_renders/v2/{serial}.png"
@@ -82,9 +92,7 @@ def parse_cards(data: Any, image_base: str = "https://ddltcg.com") -> list[Card]
         mana=_int(c.get("mana")),
         attack=_int(c.get("attack")),
         hp=_int(c.get("hp")),
-        keywords=tuple(
-          str(k) for k in c.get("keywords") or ([c["keyword"]] if c.get("keyword") else [])
-        ),
+        keywords=_keywords(c),
         description=str(c.get("description") or ""),
         image_url=img,
       )

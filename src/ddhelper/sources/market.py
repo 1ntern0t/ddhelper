@@ -14,9 +14,11 @@ from datetime import UTC, datetime, timedelta
 from typing import Any
 
 from ..http import Fetcher, SourceError
-from ._util import parse_iso
+from ._util import finite_float, parse_iso
 
 _DOG_RE = re.compile(r"#\s*(\d{1,5})")
+_INSCRIPTION_RE = re.compile(r"[0-9a-f]{64}i\d{1,10}")
+_TXID_RE = re.compile(r"[0-9a-fA-F]{64}")
 
 
 @dataclass(frozen=True)
@@ -51,6 +53,8 @@ class Sale:
 
   @property
   def market_url(self) -> str:
+    if not self.inscription_id:
+      return "https://market.doginaldogs.com/"
     return f"https://market.doginaldogs.com/inscription/{self.inscription_id}"
 
 
@@ -60,12 +64,14 @@ def _unwrap(payload: Any, proc: str) -> Any:
     item = payload[0]
   except (IndexError, KeyError, TypeError) as e:
     raise SourceError(f"market {proc}: unexpected response shape") from e
+  if not isinstance(item, dict):
+    raise SourceError(f"market {proc}: unexpected response shape")
   if "error" in item:
-    msg = (
-      item["error"].get("json", {}).get("message", "error")
-      if isinstance(item["error"], dict)
-      else "error"
-    )
+    err = item["error"]
+    body = err.get("json") if isinstance(err, dict) else None
+    msg = body.get("message") if isinstance(body, dict) else None
+    # Upstream text ends up in logs and Discord: one line, bounded length.
+    msg = " ".join(str(msg or "error").split())[:200]
     raise SourceError(f"market {proc}: {msg}")
   try:
     return item["result"]["data"]["json"]
@@ -73,43 +79,55 @@ def _unwrap(payload: Any, proc: str) -> Any:
     raise SourceError(f"market {proc}: unexpected response shape") from e
 
 
+def _unwrap_dict(payload: Any, proc: str) -> dict[str, Any]:
+  d = _unwrap(payload, proc)
+  if not isinstance(d, dict):
+    raise SourceError(f"market {proc}: unexpected response shape")
+  return d
+
+
 def parse_stats(payload: Any, fetched_at: datetime | None = None) -> MarketStats:
-  d = _unwrap(payload, "listings.getStats")
+  d = _unwrap_dict(payload, "listings.getStats")
   try:
     return MarketStats(
-      floor=float(d["floorPrice"]),
-      floor_change_pct=float(d["floorPriceChange"])
+      floor=finite_float(d["floorPrice"]),
+      floor_change_pct=finite_float(d["floorPriceChange"])
       if d.get("floorPriceChange") is not None
       else None,
       listed=int(d["listed"]),
       supply=int(d.get("supply") or 10000),
-      volume_30d=float(d.get("volume30d") or 0),
+      volume_30d=finite_float(d.get("volume30d") or 0),
       trades_30d=int(d.get("trades30d") or 0),
-      avg_sale_30d=float(d.get("avgSalePrice30d") or 0),
-      total_volume=float(d.get("totalVolume") or 0),
+      avg_sale_30d=finite_float(d.get("avgSalePrice30d") or 0),
+      total_volume=finite_float(d.get("totalVolume") or 0),
       fetched_at=fetched_at or datetime.now(UTC),
     )
-  except (KeyError, TypeError, ValueError) as e:
+  except (KeyError, TypeError, ValueError, OverflowError) as e:
     raise SourceError("market listings.getStats: missing fields") from e
 
 
-def parse_sale(a: dict[str, Any]) -> Sale | None:
-  if a.get("activityType") != "sale":
+def parse_sale(a: Any) -> Sale | None:
+  if not isinstance(a, dict) or a.get("activityType") != "sale":
     return None
   # createdAt = time of the sale; confirmedAt can lag (on-chain confirmation).
   created = parse_iso(a.get("createdAt")) or parse_iso(a.get("confirmedAt"))
   try:
-    price = float(a["priceDoge"])
+    price = finite_float(a["priceDoge"])
     sale_id = int(a["id"])
-  except (KeyError, TypeError, ValueError):
+  except (KeyError, TypeError, ValueError, OverflowError):
+    return None
+  if not 0 <= sale_id < 2**63:  # stored as a SQLite INTEGER
     return None
   if created is None:
     return None
   name = str(a.get("dogName") or "Doginal Dog")
   m = _DOG_RE.search(name)
   txid = a.get("txid") or None
-  if txid is not None and not re.fullmatch(r"[0-9a-fA-F]{64}", str(txid)):
+  if txid is not None and not _TXID_RE.fullmatch(str(txid)):
     txid = None
+  inscription_id = str(a.get("inscriptionId") or "")
+  if not _INSCRIPTION_RE.fullmatch(inscription_id):
+    inscription_id = ""  # only ever interpolated into a URL; never trust its shape
   return Sale(
     id=sale_id,
     name=name,
@@ -119,25 +137,32 @@ def parse_sale(a: dict[str, Any]) -> Sale | None:
     is_manual=bool(a.get("isManual")),
     otc=bool(a.get("otc")),
     created_at=created,
-    inscription_id=str(a.get("inscriptionId") or ""),
+    inscription_id=inscription_id,
     source=str(a.get("source") or ""),
   )
 
 
 def parse_activity(payload: Any) -> tuple[list[Sale], int | None]:
-  d = _unwrap(payload, "activity.getGlobal")
-  sales = [s for s in (parse_sale(a) for a in d.get("activities") or []) if s is not None]
+  d = _unwrap_dict(payload, "activity.getGlobal")
+  rows = d.get("activities") or []
+  if not isinstance(rows, list):
+    raise SourceError("market activity.getGlobal: unexpected response shape")
+  sales = [s for s in (parse_sale(a) for a in rows) if s is not None]
   cursor = d.get("nextCursor")
   return sales, int(cursor) if isinstance(cursor, int) else None
 
 
 def parse_floor_history(payload: Any) -> list[tuple[datetime, float]]:
-  d = _unwrap(payload, "listings.getHistoricalFloorPrice")
+  d = _unwrap_dict(payload, "listings.getHistoricalFloorPrice")
+  rows = d.get("data") or []
+  if not isinstance(rows, list):
+    raise SourceError("market listings.getHistoricalFloorPrice: unexpected response shape")
   out = []
-  for p in d.get("data") or []:
+  for p in rows:
     try:
-      out.append((datetime.fromtimestamp(p["timestamp"] / 1000, UTC), float(p["price"])))
-    except (KeyError, TypeError, ValueError):
+      ts = datetime.fromtimestamp(finite_float(p["timestamp"]) / 1000, UTC)
+      out.append((ts, finite_float(p["price"])))
+    except (KeyError, TypeError, ValueError, OverflowError, OSError):
       continue
   return sorted(out)
 

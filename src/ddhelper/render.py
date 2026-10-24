@@ -11,8 +11,12 @@ from .sources.cards import Card
 from .sources.market import Sale
 
 DISCORD_LIMIT = 2000
-_TCO_RE = re.compile(r"\s*https://t\.co/\w+")
+# No leading \s*: that made re.sub quadratic on long whitespace runs. Whitespace is
+# collapsed after substitution anyway.
+_TCO_RE = re.compile(r"https://t\.co/\w+")
 _MENTION_RE = re.compile(r"@(everyone|here)", re.I)
+# Inline markdown that can restyle or forge links ([text](url)) in upstream text.
+_MD_RE = re.compile(r"([\\*_~`|\[\]])")
 
 
 def doge(x: float) -> str:
@@ -31,6 +35,7 @@ def pct(x: float) -> str:
 
 def link(url: str) -> str:
   """Angle brackets stop Discord from unfurling a preview for the link."""
+  url = re.sub(r"\s", "", url).replace("<", "%3C").replace(">", "%3E")
   return f"<{url}>"
 
 
@@ -38,6 +43,14 @@ def sanitize(text: str) -> str:
   """Neutralise mass mentions and user/role/channel pings in upstream text."""
   text = _MENTION_RE.sub("@\u200b\\1", text)
   return text.replace("<@", "<\u200b@").replace("<#", "<\u200b#")
+
+
+def untrusted(text: str, limit: int = 200) -> str:
+  """Upstream text placed inside a line: one line, bounded, markdown escaped, no pings."""
+  text = " ".join(str(text).split())
+  if len(text) > limit:
+    text = text[: limit - 1] + "…"
+  return sanitize(_MD_RE.sub(r"\\\1", text))
 
 
 class Renderer:
@@ -64,7 +77,7 @@ class Renderer:
         f"30d volume: {doge(s.volume_30d)} over {s.trades_30d} trades (avg {doge(s.avg_sale_30d)})"
       )
     else:
-      lines.append(f"⚠️ Official stats unavailable: {r.official_error}")
+      lines.append(f"⚠️ Official stats unavailable: {untrusted(r.official_error or '')}")
     if r.vol_24h and r.vol_7d:
       lines.append(
         f"24h volume: {doge(r.vol_24h.doge)} ({plural(r.vol_24h.count, 'sale')})  ·  "
@@ -75,7 +88,7 @@ class Renderer:
           f"ℹ️ {r.vol_7d.without_tx} of {r.vol_7d.count} sales in 7d have no tx id (manually recorded by the market; not verified on-chain)."
         )
     elif r.sales_error:
-      lines.append(f"⚠️ Sales feed unavailable: {r.sales_error}")
+      lines.append(f"⚠️ Sales feed unavailable: {untrusted(r.sales_error)}")
     lines.append("")
     if r.doggy:
       d = r.doggy
@@ -89,7 +102,7 @@ class Renderer:
       for w in r.doggy_warnings:
         lines.append(f"⚠️ {w}")
     else:
-      lines.append(f"Doggy Market (secondary): unavailable ({r.doggy_error})")
+      lines.append(f"Doggy Market (secondary): unavailable ({untrusted(r.doggy_error or '')})")
     lines.append(
       f"-# Data as of {self.ts(r.generated_at)}. Market figures come from the official site's unofficial internal endpoints."
     )
@@ -97,7 +110,7 @@ class Renderer:
 
   # sales
   def sale_line(self, s: Sale) -> str:
-    title = f"#{s.dog_number}" if s.dog_number is not None else s.name
+    title = f"#{s.dog_number}" if s.dog_number is not None else untrusted(s.name, 60)
     head = f"**{title}** · {doge(s.price_doge)} · {self.ts(s.created_at)}"
     if s.has_tx:
       assert s.txid  # noqa: S101
@@ -201,13 +214,11 @@ class Renderer:
           out.append(f"@{user}: no new original posts")
           continue
         for p in posts[:3]:
-          text = sanitize(re.sub(r"\s+", " ", _TCO_RE.sub("", p.text)).strip())
+          text = untrusted(_TCO_RE.sub("", p.text), 140)
           if p.space_urls:
-            text = "🎙️ X Space " + (text or "")
+            text = "🎙️ X Space " + text
           elif not text:
             text = "(link/media post)"
-          if len(text) > 140:
-            text = text[:139] + "…"
           out.append(f"@{user} · {self.ts(p.created_at, '%-I:%M %p')}: {text} {link(p.url)}")
       if d.sales_bot_posts is not None:
         out.append(f"@DDSalesBot posted {plural(d.sales_bot_posts, 'sale update')}.")
@@ -236,7 +247,7 @@ class Renderer:
         )
     if d.gaps:
       out.append("\n**Gaps**")
-      out += [f"- {g}" for g in d.gaps]
+      out += [f"- {untrusted(g, 300)}" for g in d.gaps]
     out.append(f"-# Generated {self.ts(d.generated_at)} by ddhelper (read-only community bot).")
     return "\n".join(out)
 

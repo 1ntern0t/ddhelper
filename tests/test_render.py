@@ -1,7 +1,11 @@
+import time
+from datetime import UTC, datetime
 from zoneinfo import ZoneInfo
 
-from ddhelper.render import Renderer, chunk, doge, sanitize
-from ddhelper.sources.market import parse_activity
+from ddhelper.render import _TCO_RE, Renderer, chunk, doge, link, sanitize, untrusted
+from ddhelper.service import DigestData, FloorReport
+from ddhelper.sources.market import Sale, parse_activity
+from ddhelper.sources.xapi import Post
 from ddhelper.state import State
 
 from .conftest import load
@@ -50,3 +54,68 @@ def test_state_roundtrip(tmp_path):
   st2 = State(tmp_path / "s.sqlite3")
   assert st2.get("k") == {"a": 1}
   assert st2.filter_unseen([1]) == []
+
+
+def test_untrusted_escapes_markdown_and_mentions():
+  s = untrusted("[click](https://evil.example) **bold** @everyone <@1>\nline2 `x`")
+  assert "[click]" not in s and r"\[click\]" in s
+  assert r"\*\*bold\*\*" in s and r"\`x\`" in s
+  assert "@everyone" not in s and "<@" not in s
+  assert "\n" not in s
+  assert len(untrusted("x" * 1000, 50)) == 50
+
+
+def test_link_cannot_be_broken_out_of():
+  assert (
+    link("https://a.example/x> [y](https://evil)") == "<https://a.example/x%3E[y](https://evil)>"
+  )
+  assert link("https://a.example/\nx") == "<https://a.example/x>"
+
+
+def test_floor_escapes_upstream_error_text():
+  rep = FloorReport(
+    generated_at=datetime(2026, 10, 23, 16, 0, tzinfo=UTC),
+    official_error="market listings.getStats: [win](https://evil.example) @here",
+    sales_error="x",
+    doggy_error="y\n# heading",
+  )
+  text = R.floor(rep)
+  assert "[win](" not in text and "@here" not in text
+  assert "\n# heading" not in text
+
+
+def test_sale_name_is_escaped_when_no_dog_number():
+  s = Sale(
+    id=1,
+    name="[free](https://evil.example) @everyone",
+    dog_number=None,
+    price_doge=1.0,
+    txid=None,
+    is_manual=True,
+    otc=False,
+    created_at=datetime(2026, 10, 23, 16, 0, tzinfo=UTC),
+    inscription_id="",
+    source="",
+  )
+  line = R.sale_line(s)
+  assert "[free](" not in line and "@everyone" not in line
+
+
+def test_digest_escapes_post_text_and_gaps():
+  now = datetime(2026, 10, 23, 16, 0, tzinfo=UTC)
+  post = Post(id="1", username="a", created_at=now, text="[x](https://evil.example) hi")
+  d = DigestData(
+    generated_at=now,
+    since=now,
+    floor=FloorReport(generated_at=now),
+    posts={"a": [post]},
+    gaps=["Doggy Market unavailable ([y](https://evil.example))."],
+  )
+  text = R.digest(d)
+  assert "[x](" not in text and "[y](" not in text
+
+
+def test_tco_strip_is_not_quadratic():
+  start = time.perf_counter()
+  _TCO_RE.sub("", " " * 50_000 + "x")
+  assert time.perf_counter() - start < 0.5

@@ -12,7 +12,7 @@ from discord.ext import tasks
 from .config import Settings
 from .events import load_events
 from .http import HttpClient, SourceError
-from .render import Renderer, chunk, sanitize
+from .render import Renderer, chunk, untrusted
 from .service import Helper
 from .sources.cards import Card, validate_query
 from .state import State
@@ -211,7 +211,7 @@ def register_commands(bot: DDHelperBot, guild: discord.abc.Snowflake) -> None:
     try:
       text = r.sales(await helper.recent_sales(n))
     except SourceError as e:
-      text = f"⚠️ Official market unavailable right now ({sanitize(str(e))})."
+      text = f"⚠️ Official market unavailable right now ({untrusted(str(e))})."
     for part in chunk(text):
       await itx.followup.send(part, allowed_mentions=NO_MENTIONS, suppress_embeds=True)
 
@@ -233,7 +233,7 @@ def register_commands(bot: DDHelperBot, guild: discord.abc.Snowflake) -> None:
       matches = await helper.find_card(q)
     except SourceError as e:
       await itx.followup.send(
-        f"⚠️ Card data unavailable right now ({sanitize(str(e))}).", allowed_mentions=NO_MENTIONS
+        f"⚠️ Card data unavailable right now ({untrusted(str(e))}).", allowed_mentions=NO_MENTIONS
       )
       return
     if not matches:

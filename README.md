@@ -131,6 +131,10 @@ file in the same schema: a list of objects with `id`, `name`, `class`, `type`,
 - Layout: `src/ddhelper/{config,http,state,service,render,events,bot,cli}.py`,
   `src/ddhelper/sources/{market,doggy,xapi,cards}.py`.
 
+## Author
+
+Built by xirion. GitHub [@1ntern0t](https://github.com/1ntern0t), X [@1nternot](https://x.com/1nternot). Ideas, bug reports and PRs welcome.
+
 ## License
 
 MIT © 2026 xirion. Dependency licenses are listed in `THIRD_PARTY_LICENSES.md`.

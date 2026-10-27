@@ -1,0 +1,5 @@
+# X API pagination next_token values in recorded fixtures, not credentials.
+fde963144b4d33c66ded91b367a0ad1054413eab:tests/fixtures/x_tweets_barkmeta.json:generic-api-key:215
+fde963144b4d33c66ded91b367a0ad1054413eab:tests/fixtures/x_tweets_DDSalesBot.json:generic-api-key:617
+tests/fixtures/x_tweets_barkmeta.json:generic-api-key:215
+tests/fixtures/x_tweets_DDSalesBot.json:generic-api-key:617

@@ -1,10 +1,20 @@
 import time
+from dataclasses import replace
 from datetime import UTC, datetime
 from zoneinfo import ZoneInfo
 
-from ddhelper.render import _TCO_RE, Renderer, chunk, doge, link, sanitize, untrusted
+from ddhelper.render import (
+  _TCO_RE,
+  STALE_FLOOR_NOTE,
+  Renderer,
+  chunk,
+  doge,
+  link,
+  sanitize,
+  untrusted,
+)
 from ddhelper.service import DigestData, FloorReport
-from ddhelper.sources.market import Sale, parse_activity
+from ddhelper.sources.market import Sale, parse_activity, parse_stats
 from ddhelper.sources.xapi import Post
 from ddhelper.state import State
 
@@ -119,3 +129,13 @@ def test_tco_strip_is_not_quadratic():
   start = time.perf_counter()
   _TCO_RE.sub("", " " * 50_000 + "x")
   assert time.perf_counter() - start < 0.5
+
+
+def test_floor_with_zero_listings_is_flagged_as_stale():
+  stats = parse_stats(load("market_stats.json"))
+  rep = FloorReport(generated_at=datetime(2026, 10, 27, 13, 0, tzinfo=UTC), stats=stats)
+  assert STALE_FLOOR_NOTE not in R.floor(rep)
+  empty = replace(stats, listed=0)
+  text = R.floor(FloorReport(generated_at=rep.generated_at, stats=empty))
+  assert "Listed: **0** / 10,000" in text
+  assert STALE_FLOOR_NOTE in text

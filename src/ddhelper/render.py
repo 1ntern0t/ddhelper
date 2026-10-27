@@ -53,6 +53,13 @@ def untrusted(text: str, limit: int = 200) -> str:
   return sanitize(_MD_RE.sub(r"\\\1", text))
 
 
+# The stats endpoint keeps returning the last floor price after the last listing is gone,
+# so a floor next to "0 listed" is not something anyone can buy at right now.
+STALE_FLOOR_NOTE = (
+  "⚠️ The market reports 0 active listings, so this floor is the last listed price and may be stale."
+)
+
+
 class Renderer:
   def __init__(
     self,
@@ -73,6 +80,8 @@ class Renderer:
     if r.stats:
       s = r.stats
       lines.append(f"Floor: **{doge(s.floor)}**  ·  Listed: **{s.listed:,}** / {s.supply:,}")
+      if s.listed == 0 and s.floor > 0:
+        lines.append(STALE_FLOOR_NOTE)
       lines.append(
         f"30d volume: {doge(s.volume_30d)} over {s.trades_30d} trades (avg {doge(s.avg_sale_30d)})"
       )
@@ -188,6 +197,8 @@ class Renderer:
         line += ")"
       line += f" · {f.stats.listed:,} listed"
       out.append(line)
+      if f.stats.listed == 0 and f.stats.floor > 0:
+        out.append(STALE_FLOOR_NOTE)
     if f.vol_24h is not None:
       out.append(
         f"24h: {plural(f.vol_24h.count, 'sale')}, {doge(f.vol_24h.doge)}"
